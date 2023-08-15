@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6tluf5jikc1u"]
+
+[ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_u6jxu"]
+
+[node name="DebugLevel" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_u6jxu")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 1, 0, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 1, 65534, 0, 1, 65533, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 0, 65533, 0, 65535, 1, 0, 65535, 0, 0, 65535, 65535, 0, 65535, 65534, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65532, 65533, 0, 65531, 65533, 0, 65531, 65534, 0, 65531, 65535, 0, 65531, 0, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65533, 0, 0, 65532, 0, 0, 65532, 65535, 0, 65532, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65533, 65535, 0, 131070, 65533, 7, 131070, 65534, 5, 131071, 0, 6, 131069, 0, 655366, 131070, 0, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)

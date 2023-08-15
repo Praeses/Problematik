@@ -1,0 +1,204 @@
+[gd_scene load_steps=51 format=3 uid="uid://dc8dpnikrdyef"]
+
+[ext_resource type="PackedScene" uid="uid://ba6vbyu3gtspr" path="res://Assets/Meshes/Blocks/block-col.glb" id="1_fwl73"]
+[ext_resource type="PackedScene" uid="uid://cnh2dx8jm4d2u" path="res://Assets/Meshes/Blocks/blockCliff-col.glb" id="2_tqxwl"]
+[ext_resource type="PackedScene" uid="uid://ct2nsmefhpv5x" path="res://Assets/Meshes/Blocks/blockCliffCorner-col.glb" id="3_70oyd"]
+[ext_resource type="PackedScene" uid="uid://5r18ywna2heo" path="res://Assets/Meshes/Blocks/blockCornerLarge-col.glb" id="4_4fujw"]
+[ext_resource type="PackedScene" uid="uid://bhw655rjg7snf" path="res://Assets/Meshes/Blocks/blockCornerSmall-col.glb" id="5_b2awi"]
+[ext_resource type="PackedScene" uid="uid://d1tn23ecjyn6i" path="res://Assets/Meshes/Blocks/blockCurve-col.glb" id="6_2n64t"]
+[ext_resource type="PackedScene" uid="uid://drvdo125pnuil" path="res://Assets/Meshes/Blocks/blockCurveHalf-col.glb" id="7_4s8pu"]
+[ext_resource type="PackedScene" uid="uid://bi5rey3iyluns" path="res://Assets/Meshes/Blocks/blockCurveLow-col.glb" id="8_kwudv"]
+[ext_resource type="PackedScene" uid="uid://cxksag73uo28q" path="res://Assets/Meshes/Blocks/blockDirt-col.glb" id="9_rkynt"]
+[ext_resource type="PackedScene" uid="uid://bmyl58chitcy4" path="res://Assets/Meshes/Blocks/blockDirtHalf-col.glb" id="10_g8ykb"]
+[ext_resource type="PackedScene" uid="uid://yhop1mrmmcqj" path="res://Assets/Meshes/Blocks/blockDirtRamp-col.glb" id="11_7ojap"]
+[ext_resource type="PackedScene" uid="uid://b4ar38qmg2vla" path="res://Assets/Meshes/Blocks/blockDirtRampHalf-col.glb" id="12_yn5yk"]
+[ext_resource type="PackedScene" uid="uid://c2qakvvsj5qhj" path="res://Assets/Meshes/Blocks/blockEnd-col.glb" id="13_raj3s"]
+[ext_resource type="PackedScene" uid="uid://bh23ime16fp1q" path="res://Assets/Meshes/Blocks/blockHalf-col.glb" id="14_67qnh"]
+[ext_resource type="PackedScene" uid="uid://dayacxbi1b31t" path="res://Assets/Meshes/Blocks/blockHexagon-col.glb" id="15_yd4qm"]
+[ext_resource type="PackedScene" uid="uid://dm520805uibsy" path="res://Assets/Meshes/Blocks/blockHexagonLow-col.glb" id="16_rfo5q"]
+[ext_resource type="PackedScene" uid="uid://bkpuqy4ea5gps" path="res://Assets/Meshes/Blocks/blockLarge-col.glb" id="17_3qfr3"]
+[ext_resource type="PackedScene" uid="uid://2f4hf37mvg78" path="res://Assets/Meshes/Blocks/blockLevel-col.glb" id="18_8rip4"]
+[ext_resource type="PackedScene" uid="uid://2vhv775doqeh" path="res://Assets/Meshes/Blocks/blockLong-col.glb" id="19_qa6ny"]
+[ext_resource type="PackedScene" uid="uid://ubu765y5cui7" path="res://Assets/Meshes/Blocks/blockQuarter-col.glb" id="20_ei34h"]
+[ext_resource type="PackedScene" uid="uid://dnddo8fql5kpt" path="res://Assets/Meshes/Blocks/blockRounded-col.glb" id="21_hywmg"]
+[ext_resource type="PackedScene" uid="uid://brvpusn4ynwis" path="res://Assets/Meshes/Blocks/blockRoundedLarge-col.glb" id="22_tdtk7"]
+[ext_resource type="PackedScene" uid="uid://be8hgeyqkeje3" path="res://Assets/Meshes/Blocks/blockRoundedLong-col.glb" id="23_lg6x4"]
+[ext_resource type="PackedScene" uid="uid://b5r3k6w064mg" path="res://Assets/Meshes/Blocks/blockRoundedLow-col.glb" id="24_a66tc"]
+[ext_resource type="PackedScene" uid="uid://d3qyqwggarhm0" path="res://Assets/Meshes/Blocks/blockRoundedLowLong-col.glb" id="25_g4sba"]
+[ext_resource type="PackedScene" uid="uid://tnx81vux1hon" path="res://Assets/Meshes/Blocks/blockSlope-col.glb" id="26_6neh5"]
+[ext_resource type="PackedScene" uid="uid://d0swg8171gsqa" path="res://Assets/Meshes/Blocks/blockSlopeHalf-col.glb" id="27_cocba"]
+[ext_resource type="PackedScene" uid="uid://bflfujj1e4t5v" path="res://Assets/Meshes/Blocks/blockSnow-col.glb" id="28_tefrv"]
+[ext_resource type="PackedScene" uid="uid://bl8ccy3emy5m5" path="res://Assets/Meshes/Blocks/blockSnowCliff-col.glb" id="29_rq8il"]
+[ext_resource type="PackedScene" uid="uid://4bwtweqqxo70" path="res://Assets/Meshes/Blocks/blockSnowCliffCorner-col.glb" id="30_i2jhr"]
+[ext_resource type="PackedScene" uid="uid://ccuri8nuibn18" path="res://Assets/Meshes/Blocks/blockSnowCornerLarge-col.glb" id="31_g61n3"]
+[ext_resource type="PackedScene" uid="uid://c2s7chitlr8lj" path="res://Assets/Meshes/Blocks/blockSnowCornerSmall-col.glb" id="32_srolo"]
+[ext_resource type="PackedScene" uid="uid://bk7n0csjv2dmm" path="res://Assets/Meshes/Blocks/blockSnowCurve-col.glb" id="33_8xgm1"]
+[ext_resource type="PackedScene" uid="uid://b7ujrmv725cpf" path="res://Assets/Meshes/Blocks/blockSnowCurveHalf-col.glb" id="34_604cl"]
+[ext_resource type="PackedScene" uid="uid://8rjdynp652he" path="res://Assets/Meshes/Blocks/blockSnowCurveLow-col.glb" id="35_3pcej"]
+[ext_resource type="PackedScene" uid="uid://dfqlntr50l05p" path="res://Assets/Meshes/Blocks/blockSnowEnd-col.glb" id="36_vw733"]
+[ext_resource type="PackedScene" uid="uid://ses4munqnenf" path="res://Assets/Meshes/Blocks/blockSnowHalf-col.glb" id="37_idhcs"]
+[ext_resource type="PackedScene" uid="uid://c7ukf6p81r301" path="res://Assets/Meshes/Blocks/blockSnowHexagon-col.glb" id="38_cp76d"]
+[ext_resource type="PackedScene" uid="uid://c864smmudkkrq" path="res://Assets/Meshes/Blocks/blockSnowHexagonLow-col.glb" id="39_3tspf"]
+[ext_resource type="PackedScene" uid="uid://bklt8xfykg2be" path="res://Assets/Meshes/Blocks/blockSnowLarge-col.glb" id="40_txcpd"]
+[ext_resource type="PackedScene" uid="uid://cq747nppld11k" path="res://Assets/Meshes/Blocks/blockSnowLevel-col.glb" id="41_74ugi"]
+[ext_resource type="PackedScene" uid="uid://bb84hjaeg7u15" path="res://Assets/Meshes/Blocks/blockSnowLong-col.glb" id="42_0tywq"]
+[ext_resource type="PackedScene" uid="uid://hqq353fh26l7" path="res://Assets/Meshes/Blocks/blockSnowQuarter-col.glb" id="43_xsi72"]
+[ext_resource type="PackedScene" uid="uid://rpg3gx52ydqw" path="res://Assets/Meshes/Blocks/blockSnowRounded-col.glb" id="44_3qtan"]
+[ext_resource type="PackedScene" uid="uid://cpuh227qkebjn" path="res://Assets/Meshes/Blocks/blockSnowRoundedLarge-col.glb" id="45_a684u"]
+[ext_resource type="PackedScene" uid="uid://c5xvmf6hqn1f6" path="res://Assets/Meshes/Blocks/blockSnowRoundedLong-col.glb" id="46_sy0ue"]
+[ext_resource type="PackedScene" uid="uid://ma07drfkeo3x" path="res://Assets/Meshes/Blocks/blockSnowRoundedLow-col.glb" id="47_niwgf"]
+[ext_resource type="PackedScene" uid="uid://ctnhwdddne8u7" path="res://Assets/Meshes/Blocks/blockSnowRoundedLowLong-col.glb" id="48_nin88"]
+[ext_resource type="PackedScene" uid="uid://ph7wi71dgwfv" path="res://Assets/Meshes/Blocks/blockSnowSlope-col.glb" id="49_5d8tx"]
+[ext_resource type="PackedScene" uid="uid://bubj3j6vs3ipq" path="res://Assets/Meshes/Blocks/blockSnowSlopeHalf-col.glb" id="50_wd8ln"]
+
+[node name="BlockLib" type="Node3D"]
+
+[node name="block-col" parent="." instance=ExtResource("1_fwl73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="blockCliff-col" parent="." instance=ExtResource("2_tqxwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="blockCliffCorner-col" parent="." instance=ExtResource("3_70oyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="blockCornerLarge-col" parent="." instance=ExtResource("4_4fujw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="blockCornerSmall-col" parent="." instance=ExtResource("5_b2awi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="blockCurve-col" parent="." instance=ExtResource("6_2n64t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+
+[node name="blockCurveHalf-col" parent="." instance=ExtResource("7_4s8pu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+
+[node name="blockCurveLow-col" parent="." instance=ExtResource("8_kwudv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
+
+[node name="blockDirt-col" parent="." instance=ExtResource("9_rkynt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+
+[node name="blockDirtHalf-col" parent="." instance=ExtResource("10_g8ykb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+
+[node name="blockDirtRamp-col" parent="." instance=ExtResource("11_7ojap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+
+[node name="blockDirtRampHalf-col" parent="." instance=ExtResource("12_yn5yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="blockEnd-col" parent="." instance=ExtResource("13_raj3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+
+[node name="blockHalf-col" parent="." instance=ExtResource("14_67qnh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, 0)
+
+[node name="blockHexagon-col" parent="." instance=ExtResource("15_yd4qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0)
+
+[node name="blockHexagonLow-col" parent="." instance=ExtResource("16_rfo5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 0)
+
+[node name="blockLarge-col" parent="." instance=ExtResource("17_3qfr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 0)
+
+[node name="blockLevel-col" parent="." instance=ExtResource("18_8rip4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0)
+
+[node name="blockLong-col" parent="." instance=ExtResource("19_qa6ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 0)
+
+[node name="blockQuarter-col" parent="." instance=ExtResource("20_ei34h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 0)
+
+[node name="blockRounded-col" parent="." instance=ExtResource("21_hywmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 0)
+
+[node name="blockRoundedLarge-col" parent="." instance=ExtResource("22_tdtk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, 0)
+
+[node name="blockRoundedLong-col" parent="." instance=ExtResource("23_lg6x4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 0)
+
+[node name="blockRoundedLow-col" parent="." instance=ExtResource("24_a66tc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 3)
+
+[node name="blockRoundedLowLong-col" parent="." instance=ExtResource("25_g4sba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 3)
+
+[node name="blockSlope-col" parent="." instance=ExtResource("26_6neh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, 0)
+
+[node name="blockSlopeHalf-col" parent="." instance=ExtResource("27_cocba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0)
+
+[node name="blockSnow-col" parent="." instance=ExtResource("28_tefrv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="blockSnowCliff-col" parent="." instance=ExtResource("29_rq8il")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+
+[node name="blockSnowCliffCorner-col" parent="." instance=ExtResource("30_i2jhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="blockSnowCornerLarge-col" parent="." instance=ExtResource("31_g61n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3)
+
+[node name="blockSnowCornerSmall-col" parent="." instance=ExtResource("32_srolo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
+
+[node name="blockSnowCurve-col" parent="." instance=ExtResource("33_8xgm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -3)
+
+[node name="blockSnowCurveHalf-col" parent="." instance=ExtResource("34_604cl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -3)
+
+[node name="blockSnowCurveLow-col" parent="." instance=ExtResource("35_3pcej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -3)
+
+[node name="blockSnowEnd-col" parent="." instance=ExtResource("36_vw733")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -3)
+
+[node name="blockSnowHalf-col" parent="." instance=ExtResource("37_idhcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -3)
+
+[node name="blockSnowHexagon-col" parent="." instance=ExtResource("38_cp76d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, -3)
+
+[node name="blockSnowHexagonLow-col" parent="." instance=ExtResource("39_3tspf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -3)
+
+[node name="blockSnowLarge-col" parent="." instance=ExtResource("40_txcpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -3)
+
+[node name="blockSnowLevel-col" parent="." instance=ExtResource("41_74ugi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -3)
+
+[node name="blockSnowLong-col" parent="." instance=ExtResource("42_0tywq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -3)
+
+[node name="blockSnowQuarter-col" parent="." instance=ExtResource("43_xsi72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, -3)
+
+[node name="blockSnowRounded-col" parent="." instance=ExtResource("44_3qtan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, -3)
+
+[node name="blockSnowRoundedLarge-col" parent="." instance=ExtResource("45_a684u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -3)
+
+[node name="blockSnowRoundedLong-col" parent="." instance=ExtResource("46_sy0ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, -3)
+
+[node name="blockSnowRoundedLow-col" parent="." instance=ExtResource("47_niwgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -3)
+
+[node name="blockSnowRoundedLowLong-col" parent="." instance=ExtResource("48_nin88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 0, -3)
+
+[node name="blockSnowSlope-col" parent="." instance=ExtResource("49_5d8tx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -3)
+
+[node name="blockSnowSlopeHalf-col" parent="." instance=ExtResource("50_wd8ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
