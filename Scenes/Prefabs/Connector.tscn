@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv35gqsuwuddc"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/Connector.gd" id="1_vlws8"]
+[ext_resource type="Material" uid="uid://d3ka80ymflskv" path="res://Assets/Materials/Metallic.material" id="2_tfmsb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_daa5k"]
+material = ExtResource("2_tfmsb")
+top_radius = 0.1
+bottom_radius = 0.2
+height = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_mnctl"]
+material = ExtResource("2_tfmsb")
+radius = 0.15
+height = 0.16
+is_hemisphere = true
+
+[node name="Connector" type="Node3D"]
+script = ExtResource("1_vlws8")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146809, 0)
+mesh = SubResource("CylinderMesh_daa5k")
+
+[node name="Node" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.281081, 0)
+mesh = SubResource("SphereMesh_mnctl")
+
+[node name="PulseTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339721, 0)
+visible = false
+
+[connection signal="timeout" from="PulseTimer" to="." method="_on_pulse_timer_timeout"]
