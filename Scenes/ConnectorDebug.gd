@@ -19,6 +19,22 @@ func _ready():
 	pass # Replace with function body.
 
 
+func align_up(node_basis, normal):
+	var result = Basis()
+	var scale = node_basis.get_scale().abs()
+
+	result.x = normal.cross(node_basis.z)
+	result.y = normal
+	result.z = node_basis.x.cross(normal)
+
+	result = result.orthonormalized()
+	result.x *= scale.x #
+	result.y *= scale.y #
+	result.z *= scale.z #
+
+	return result
+
+
 func _input(event):
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_pos = event.position
@@ -42,14 +58,13 @@ func _input(event):
 					lasers.append(laser_instance)
 			else:
 				var position = collision["position"]
-				var normal = -collision["normal"]
+				var normal = collision["normal"]
 				
 				var extender = extender_scene.instantiate()
 				add_child(extender)
 				extender.position = position
-#				extender.basis.x = normal.cross(extender.basis.z)
-#				extender.basis.y = normal
-#				extender.basis.z = extender.basis.x.cross(normal)
+				extender.look_at(normal)
+				extender.global_transform.basis = align_up(extender.global_transform.basis, normal)
 				pass
 	elif Input.is_action_just_pressed("right_click"):
 		var mouse_pos = event.position

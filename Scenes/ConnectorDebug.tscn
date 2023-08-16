@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b736vhnerlegh"]
+[gd_scene load_steps=7 format=3 uid="uid://b736vhnerlegh"]
 
 [ext_resource type="PackedScene" uid="uid://dv35gqsuwuddc" path="res://Scenes/Prefabs/Connector.tscn" id="1_06plv"]
 [ext_resource type="Script" path="res://Scenes/ConnectorDebug.gd" id="1_nmvem"]
+[ext_resource type="PackedScene" uid="uid://ba6vbyu3gtspr" path="res://Assets/Meshes/Blocks/block-col.glb" id="3_kj78s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ph1ac"]
 
@@ -19,6 +20,7 @@ transform = Transform3D(7.5468, 0, 0, 0, 5.09523, 0, 0, 0, 0.222572, 0, 0, 0)
 mesh = SubResource("BoxMesh_ph1ac")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tkwfa")
@@ -41,6 +43,12 @@ autostart = true
 
 [node name="Connector2" parent="." instance=ExtResource("1_06plv")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
+
+[node name="block-col" parent="." instance=ExtResource("3_kj78s")]
+transform = Transform3D(0.866025, 0, 0.5, 0.25, 0.866025, -0.433013, -0.433013, 0.5, 0.75, 3.10058, 0, 0.800286)
+
+[node name="block-col2" parent="." instance=ExtResource("3_kj78s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67019, -2.24563, 1.00845)
 
 [connection signal="pulsed" from="." to="Connector" method="_on_pulsed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
