@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj7ent3jecg2w"]
+[gd_scene load_steps=7 format=3 uid="uid://bm4exkb0dslxk"]
 
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_08uio"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_otfkw"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
+[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_flwny"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

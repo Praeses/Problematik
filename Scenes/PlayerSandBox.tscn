@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccn6qvvdr1vqk"]
 
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="1_ud1io"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="2_mnmhi"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Door.tscn" id="3_1m5ws"]
+[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="2_mnmhi"]
+[ext_resource type="PackedScene" uid="uid://p6nxh3tsxd55" path="res://Scenes/Prefabs/Door.tscn" id="3_1m5ws"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67x3n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
