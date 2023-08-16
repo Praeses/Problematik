@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dctwpsouiufhv"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/ConnectorHandler.gd" id="1_p41uy"]
+
+[node name="ConnectorHandler" type="Node3D"]
+script = ExtResource("1_p41uy")

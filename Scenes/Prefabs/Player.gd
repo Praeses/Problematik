@@ -1,6 +1,12 @@
 extends CharacterBody3D
 
 
+signal extender_added(position: Vector3, normal: Vector3)
+signal laser_connected(source: Node3D, destination: Node3D)
+
+const LASER := 0
+const EXTENDER := 1
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var mouse_sensitivity = 0.001
@@ -32,6 +38,18 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	$Twist/Pitch/Tool/Tool5
 ]
 
+func _input(event):
+	if Input.is_action_just_pressed("left_click") && !switching_tool:
+		var ray_result = tools[tool_index].fire_ray()
+		if tool_index == EXTENDER:
+			if ray_result.has("collider") && ray_result.has("normal") && ray_result.has("point"):
+				var collider = ray_result["collider"]
+				if not collider.is_in_group("Connector"):
+					var normal = ray_result["normal"]
+					var point = ray_result["point"]
+					extender_added.emit(point, normal)
+				pass
+		print(ray_result)
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
