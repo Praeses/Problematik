@@ -23,7 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.70131)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.727258, 0.686364, 0, -0.686364, 0.727258, 0, 8.91289, 13.3823)
-visible = false
 
 [node name="Connector" parent="." instance=ExtResource("1_06plv")]
 transform = Transform3D(1, 0, 0, 0, -0.0289161, -0.999582, 0, 0.999582, -0.0289161, -1, -9.53674e-07, 0.00263846)
@@ -33,8 +32,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Connector2" parent="." instance=ExtResource("1_06plv")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
 
 [connection signal="pulsed" from="." to="Connector" method="_on_pulsed"]
-[connection signal="pulsed" from="Connector" to="Connector2" method="_on_pulsed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
