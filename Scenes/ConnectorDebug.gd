@@ -77,6 +77,7 @@ func _input(event):
 			var filtered_lasers = lasers.filter(func (laser): return laser.source == target || laser.destination == target)
 			for l in filtered_lasers:
 				l.queue_free()
+				lasers.erase(l)
 		pass
 
 
