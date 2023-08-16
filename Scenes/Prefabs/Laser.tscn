@@ -6,38 +6,38 @@ class_name Laser
 
 @onready var _mesh := $MeshInstance3D
 
-var _source: Node3D
-var _destination: Node3D
+var source: Node3D
+var destination: Node3D
 
 signal pulsed(value: bool)
 
 
 func set_source(source: Node3D):
 	if source.owner is Connector:
-		_source = source
-		_source.owner.pulsed.connect(_on_pulsed)
+		self.source = source
+		source.owner.pulsed.connect(_on_pulsed)
 		print(\"[Laser] - Source pulsed signal connected to Laser\")
 	else:
 		print(\"[Laser] - Source not a Connector, skipping\")
 
 
 func remove_source():
-	_source.owner.pulsed.disconnect(_on_pulsed)
-	_source = null
+	source.owner.pulsed.disconnect(_on_pulsed)
+	source = null
 
 
 func set_destination(destination: Node3D):
 	if destination.owner is Connector:
-		_destination = destination
-		pulsed.connect(_destination.owner._on_pulsed)
+		self.destination = destination
+		pulsed.connect(self.destination.owner._on_pulsed)
 		print(\"[Laser] - Laser pulsed signal connected to Destination\")
 	else:
 		print(\"[Laser] - Destination not a Connector, skipping\")
 
 
 func remove_destination():
-	_destination = null
-	pulsed.disconnect(_destination.owner._on_pulsed)
+	destination = null
+	pulsed.disconnect(destination.owner._on_pulsed)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,16 +47,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if _source:
-		global_position = _source.global_position
+	if source:
+		global_position = source.global_position
 		print(\"Laser Source: \" + str(position))
 	
-	if _destination:
-		print(\"Laser Destination: \" + str(_destination.global_position))
-		look_at(_destination.global_position)
-		var distance = _source.global_position.distance_to(_destination.global_position)
+	if destination:
+		print(\"Laser Destination: \" + str(destination.global_position))
+		look_at(destination.global_position)
+		var distance = source.global_position.distance_to(destination.global_position)
 		_mesh.mesh.height = distance
-		var direction = _source.global_position.direction_to(_destination.global_position)
+		var direction = source.global_position.direction_to(destination.global_position)
 		
 		_mesh.position.z = -distance/2
 	pass

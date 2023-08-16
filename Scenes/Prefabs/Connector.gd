@@ -15,6 +15,8 @@ const FALSE_EMISSION_COLOR := Color.DARK_RED
 
 var _current_value := false
 
+var lasers := []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,6 +27,23 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func add_laser(laser: Node3D):
+	if(laser not in lasers):
+		print("[Connector] - Adding laser: " + str(laser))
+		lasers.append(laser)
+	pass
+
+
+func remove_laser(laser: Node3D):
+	lasers.erase(laser)
+	pass
+
+
+#func clear_lasers():
+#	for laser in lasers:
+#		laser.remov
 
 
 func _on_pulsed(value: bool):

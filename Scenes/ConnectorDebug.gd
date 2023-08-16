@@ -10,6 +10,7 @@ var src: Node3D = null
 var dest: Node3D = null
 
 var laser_scene := preload("res://Scenes/Prefabs/Laser.tscn")
+var lasers := []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,13 +19,9 @@ func _ready():
 
 
 func _input(event):
-	if event is InputEventMouseButton && event.is_pressed():
-		var mouse_pos = event.position
-		var space_state = get_world_3d().get_direct_space_state()
-		var query = PhysicsRayQueryParameters3D.new()
-		query.from = camera.project_ray_origin(mouse_pos)
-		query.to = query.from + camera.project_ray_normal(mouse_pos) * ray_length
-		var collision = space_state.intersect_ray(query)
+	var mouse_pos = event.position
+	if Input.is_action_just_pressed("left_click"):		
+		var collision = _get_selected_object(mouse_pos)
 		if collision:
 			print(str(collision))
 			var target = collision["collider"].get_parent()
@@ -40,6 +37,25 @@ func _input(event):
 				
 				src = null
 				dest = null
+				
+				lasers.append(laser_instance)
+	elif Input.is_action_just_pressed("right_click"):
+		var collision = _get_selected_object(mouse_pos)
+		if collision:
+			print(str(collision))
+			var target = collision["collider"].get_parent()
+			var filtered_lasers = lasers.filter(func (laser): return laser.source == target || laser.destination == target)
+			for l in filtered_lasers:
+				l.queue_free()
+		pass
+
+
+func _get_selected_object(mouse_pos):	
+	var space_state = get_world_3d().get_direct_space_state()
+	var query = PhysicsRayQueryParameters3D.new()
+	query.from = camera.project_ray_origin(mouse_pos)
+	query.to = query.from + camera.project_ray_normal(mouse_pos) * ray_length
+	return space_state.intersect_ray(query)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
