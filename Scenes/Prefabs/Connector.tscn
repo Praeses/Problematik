@@ -29,7 +29,7 @@ mesh = SubResource("CylinderMesh_daa5k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.281081, 0)
 mesh = SubResource("SphereMesh_mnctl")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Node" groups=["Connector"]]
 collision_layer = 2
 collision_mask = 0
 
