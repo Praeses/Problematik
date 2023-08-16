@@ -1,10 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmm6vfpbo1n6f"]
+[gd_scene load_steps=9 format=3 uid="uid://dmm6vfpbo1n6f"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/Player.gd" id="1_pi4w3"]
+[ext_resource type="Texture2D" uid="uid://6r6upaxn7shj" path="res://Assets/Texture/ToolBorder.png" id="2_khv0m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oa4m4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x5a77"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qx8nf"]
+size = Vector3(0.3, 0.3, 1)
+
+[sub_resource type="Animation" id="Animation_tolfc"]
+resource_name = "Holster"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, -0.707107, 0, 0, 0.707107)
+
+[sub_resource type="Animation" id="Animation_crbid"]
+resource_name = "Draw"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107, 0.5, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1j0vm"]
+_data = {
+"Draw": SubResource("Animation_crbid"),
+"Holster": SubResource("Animation_tolfc")
+}
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_pi4w3")
@@ -21,3 +53,153 @@ mesh = SubResource("CapsuleMesh_x5a77")
 
 [node name="Camera3D" type="Camera3D" parent="Twist/Pitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83636, 0)
+
+[node name="Tool" type="Node3D" parent="Twist/Pitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.716, 0.136, 0)
+
+[node name="Tool1" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+mesh = SubResource("BoxMesh_qx8nf")
+
+[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool1"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.16, -0.25)
+text = "Tool1"
+
+[node name="Tool2" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+visible = false
+mesh = SubResource("BoxMesh_qx8nf")
+
+[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool2"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.16, -0.25)
+text = "Tool2"
+
+[node name="Tool3" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+visible = false
+mesh = SubResource("BoxMesh_qx8nf")
+
+[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool3"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.16, -0.25)
+text = "Tool3"
+
+[node name="Tool4" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+visible = false
+mesh = SubResource("BoxMesh_qx8nf")
+
+[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool4"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.16, -0.25)
+text = "Tool4"
+
+[node name="Tool5" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+visible = false
+mesh = SubResource("BoxMesh_qx8nf")
+
+[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool5"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.16, -0.25)
+text = "Tool5"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Twist/Pitch/Tool"]
+root_node = NodePath("../Tool1")
+libraries = {
+"": SubResource("AnimationLibrary_1j0vm")
+}
+
+[node name="ToolHud" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Tool1" type="TextureRect" parent="ToolHud"]
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("2_khv0m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ToolHud/Tool1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tool2" type="TextureRect" parent="ToolHud"]
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("2_khv0m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ToolHud/Tool2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tool3" type="TextureRect" parent="ToolHud"]
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("2_khv0m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ToolHud/Tool3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tool4" type="TextureRect" parent="ToolHud"]
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("2_khv0m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ToolHud/Tool4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tool5" type="TextureRect" parent="ToolHud"]
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("2_khv0m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ToolHud/Tool5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "T5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="Twist/Pitch/Tool/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
