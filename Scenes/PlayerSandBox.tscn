@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccn6qvvdr1vqk"]
+[gd_scene load_steps=8 format=3 uid="uid://ccn6qvvdr1vqk"]
 
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="1_ud1io"]
+[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="2_mnmhi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_67x3n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,3 +41,6 @@ shape = SubResource("ConcavePolygonShape3D_cblr3")
 
 [node name="Player" parent="." instance=ExtResource("1_ud1io")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748654, 1.15352, 0.546227)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_mnmhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93577, 0.535337, -2.09135)
