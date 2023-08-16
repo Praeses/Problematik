@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b736vhnerlegh"]
 
-[ext_resource type="PackedScene" uid="uid://dv35gqsuwuddc" path="res://Scenes/Prefabs/Connector.tscn" id="1_06plv"]
 [ext_resource type="Script" path="res://Scenes/ConnectorDebug.gd" id="1_nmvem"]
+[ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="3_fyuas"]
 [ext_resource type="PackedScene" uid="uid://ba6vbyu3gtspr" path="res://Assets/Meshes/Blocks/block-col.glb" id="3_kj78s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ph1ac"]
@@ -34,15 +34,9 @@ current = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.727258, 0.686364, 0, -0.686364, 0.727258, 0, 8.91289, 13.3823)
 
-[node name="Connector" parent="." instance=ExtResource("1_06plv")]
-transform = Transform3D(1, 0, 0, 0, -0.0289161, -0.999582, 0, 0.999582, -0.0289161, -1, -9.53674e-07, 0.00263846)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-
-[node name="Connector2" parent="." instance=ExtResource("1_06plv")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
 
 [node name="block-col" parent="." instance=ExtResource("3_kj78s")]
 transform = Transform3D(0.866025, 0, 0.5, 0.25, 0.866025, -0.433013, -0.433013, 0.5, 0.75, 3.10058, 0, 0.800286)
@@ -50,5 +44,8 @@ transform = Transform3D(0.866025, 0, 0.5, 0.25, 0.866025, -0.433013, -0.433013, 
 [node name="block-col2" parent="." instance=ExtResource("3_kj78s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67019, -2.24563, 1.00845)
 
-[connection signal="pulsed" from="." to="Connector" method="_on_pulsed"]
+[node name="LogicProducer" parent="." instance=ExtResource("3_fyuas")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0367112, 0, 0.0905054)
+
+[connection signal="pulsed" from="." to="LogicProducer" method="_on_pulsed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
