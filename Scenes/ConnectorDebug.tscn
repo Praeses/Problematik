@@ -20,7 +20,6 @@ transform = Transform3D(7.5468, 0, 0, 0, 5.09523, 0, 0, 0, 0.222572, 0, 0, 0)
 mesh = SubResource("BoxMesh_ph1ac")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tkwfa")
@@ -30,6 +29,7 @@ environment = SubResource("Environment_mcag2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.70131)
+current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.727258, 0.686364, 0, -0.686364, 0.727258, 0, 8.91289, 13.3823)
