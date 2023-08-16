@@ -9,7 +9,8 @@ var ray_length := 10.0
 var src: Node3D = null
 var dest: Node3D = null
 
-var laser_scene := preload("res://Scenes/Prefabs/Laser.tscn")
+const laser_scene := preload("res://Scenes/Prefabs/Laser.tscn")
+const extender_scene := preload("res://Scenes/Prefabs/Extender.tscn")
 var lasers := []
 
 
@@ -19,29 +20,43 @@ func _ready():
 
 
 func _input(event):
-	var mouse_pos = event.position
-	if Input.is_action_just_pressed("left_click"):		
+	if Input.is_action_just_pressed("left_click"):
+		var mouse_pos = event.position
 		var collision = _get_selected_object(mouse_pos)
 		if collision:
 			print(str(collision))
-			var target = collision["collider"].get_parent()
-			if not src:
-				src = target
-#				print(src)
-			elif not dest:
-				dest = target
-				var laser_instance = laser_scene.instantiate()
-				add_child(laser_instance)
-				laser_instance.set_source(src)
-				laser_instance.set_destination(dest)
+			if collision["collider"].is_in_group("Connector"):
+				var target = collision["collider"].get_parent()
+				if not src:
+					src = target
+				elif not dest:
+					dest = target
+					var laser_instance = laser_scene.instantiate()
+					add_child(laser_instance)
+					laser_instance.set_source(src)
+					laser_instance.set_destination(dest)
+					
+					src = null
+					dest = null
+					
+					lasers.append(laser_instance)
+			else:
+				var position = collision["position"]
+				var normal = -collision["normal"]
 				
-				src = null
-				dest = null
-				
-				lasers.append(laser_instance)
+				var extender = extender_scene.instantiate()
+				add_child(extender)
+				extender.position = position
+#				extender.basis.x = normal.cross(extender.basis.z)
+#				extender.basis.y = normal
+#				extender.basis.z = extender.basis.x.cross(normal)
+				pass
 	elif Input.is_action_just_pressed("right_click"):
+		var mouse_pos = event.position
 		var collision = _get_selected_object(mouse_pos)
-		if collision:
+		if src != null && dest == null:
+			src = null
+		elif collision:
 			print(str(collision))
 			var target = collision["collider"].get_parent()
 			var filtered_lasers = lasers.filter(func (laser): return laser.source == target || laser.destination == target)

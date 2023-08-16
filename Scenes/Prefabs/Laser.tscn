@@ -73,6 +73,7 @@ emission_enabled = true
 emission = Color(0.886275, 0.886275, 0.611765, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6qfmm"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_e0kmp")
 top_radius = 0.05
 bottom_radius = 0.05
