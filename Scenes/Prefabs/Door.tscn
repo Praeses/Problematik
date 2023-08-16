@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://p6nxh3tsxd55"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/door.gd" id="1_f67pb"]
+[ext_resource type="PackedScene" uid="uid://cocjnui47frbw" path="res://Assets/Meshes/Scatter/doorClosed-col.glb" id="2_8clah"]
+[ext_resource type="PackedScene" uid="uid://d0qm22mql4mbt" path="res://Assets/Meshes/Scatter/doorOpen-col.glb" id="3_n8si1"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("1_f67pb")
+
+[node name="Mesh1" type="MeshInstance3D" parent="."]
+
+[node name="doorClosed" parent="Mesh1" instance=ExtResource("2_8clah")]
+
+[node name="Mesh2" type="MeshInstance3D" parent="."]
+
+[node name="doorOpen" parent="Mesh2" instance=ExtResource("3_n8si1")]
