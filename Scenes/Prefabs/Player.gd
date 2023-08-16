@@ -100,6 +100,9 @@ func _unhandled_input(event: InputEvent):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
+			
+	if event is InputEventMouseButton:
+		pass
 
 
 func _on_animation_player_animation_finished(anim_name):
