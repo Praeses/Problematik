@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://c44c03bwqrurx"]
+
+[sub_resource type="GDScript" id="GDScript_4tbrl"]
+script/source = "extends Node3D
+class_name Laser
+
+@onready var _mesh := $MeshInstance3D
+
+var _source: Node3D
+var _destination: Node3D
+
+signal pulsed(value: bool)
+
+
+func set_source(source: Node3D):
+	if source.owner is Connector:
+		_source = source
+		_source.owner.pulsed.connect(_on_pulsed)
+		print(\"[Laser] - Source pulsed signal connected to Laser\")
+	else:
+		print(\"[Laser] - Source not a Connector, skipping\")
+
+
+func remove_source():
+	_source.owner.pulsed.disconnect(_on_pulsed)
+	_source = null
+
+
+func set_destination(destination: Node3D):
+	if destination.owner is Connector:
+		_destination = destination
+		pulsed.connect(_destination.owner._on_pulsed)
+		print(\"[Laser] - Laser pulsed signal connected to Destination\")
+	else:
+		print(\"[Laser] - Destination not a Connector, skipping\")
+
+
+func remove_destination():
+	_destination = null
+	pulsed.disconnect(_destination.owner._on_pulsed)
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if _source:
+		global_position = _source.global_position
+		print(\"Laser Source: \" + str(position))
+	
+	if _destination:
+		print(\"Laser Destination: \" + str(_destination.global_position))
+		look_at(_destination.global_position)
+		var distance = _source.global_position.distance_to(_destination.global_position)
+		_mesh.mesh.height = distance
+		var direction = _source.global_position.direction_to(_destination.global_position)
+		
+		_mesh.position.z = -distance/2
+	pass
+
+
+func _on_pulsed(value: bool):
+	pulsed.emit(value)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0kmp"]
+transparency = 1
+albedo_color = Color(1, 1, 0.427451, 0.356863)
+emission_enabled = true
+emission = Color(0.886275, 0.886275, 0.611765, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6qfmm"]
+material = SubResource("StandardMaterial3D_e0kmp")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.01
+radial_segments = 16
+rings = 1
+
+[node name="Laser" type="Node3D"]
+script = SubResource("GDScript_4tbrl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6qfmm")
