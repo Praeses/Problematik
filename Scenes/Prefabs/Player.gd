@@ -6,15 +6,62 @@ const JUMP_VELOCITY = 4.5
 var mouse_sensitivity = 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
+var tool_index := 0
+var new_tool_index := 0
+var switching_tool := false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var twist := $Twist
 @onready var pitch := $Twist/Pitch
+@onready var tool_bar_hud := [
+	$ToolHud/Tool1,
+	$ToolHud/Tool2,
+	$ToolHud/Tool3,
+	$ToolHud/Tool4,
+	$ToolHud/Tool5
+]
+@onready var tool_animation_player := $Twist/Pitch/Tool/AnimationPlayer
+@onready var tools := [
+	$Twist/Pitch/Tool/Tool1, 
+	$Twist/Pitch/Tool/Tool2, 
+	$Twist/Pitch/Tool/Tool3, 
+	$Twist/Pitch/Tool/Tool4,
+	$Twist/Pitch/Tool/Tool5
+]
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	tool_bar_hud[0].modulate = Color.PURPLE
+
+func _process(delta):
+	if Input.is_action_just_pressed("swtich_tool_1") and !switching_tool:
+		new_tool_index = 0
+		switch_tool()
+
+	if Input.is_action_just_pressed("swtich_tool_2") and !switching_tool:
+		new_tool_index = 1
+		switch_tool()
+		
+	if Input.is_action_just_pressed("swtich_tool_3") and !switching_tool:
+		new_tool_index = 2
+		switch_tool()
+
+	if Input.is_action_just_pressed("swtich_tool_4") and !switching_tool:
+		new_tool_index = 3
+		switch_tool()
+
+	if Input.is_action_just_pressed("swtich_tool_5") and !switching_tool:
+		new_tool_index = 4
+		switch_tool()
+
+func switch_tool():
+	tool_animation_player.play("Holster")
+	switching_tool = true
+
 
 func _physics_process(delta):
 	#TODO: Not sure if we need this here but this frees up the mouse on an escape button press
@@ -56,3 +103,14 @@ func _unhandled_input(event: InputEvent):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensitivity
 			pitch_input = - event.relative.y * mouse_sensitivity
+
+func _on_animation_player_animation_finished(anim_name):
+	if (anim_name == "Holster"):
+		tools[tool_index].hide()
+		tool_bar_hud[tool_index].modulate = Color.WHITE
+		tools[new_tool_index].show()
+		tool_bar_hud[new_tool_index].modulate = Color.PURPLE
+		tool_index = new_tool_index
+		tool_animation_player.play("Draw")
+	if(anim_name == "Draw"):
+		switching_tool = false
