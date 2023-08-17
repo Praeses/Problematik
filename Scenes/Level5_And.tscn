@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Level5_And.gd" id="1_nmb3l"]
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_ss7nm"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_loyv0"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_nsfci"]
+[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_nsfci"]
 [ext_resource type="AudioStream" uid="uid://ci3gfs3ph1ujc" path="res://Assets/Audio/winter problem.mp3" id="4_op0vf"]
 [ext_resource type="AudioStream" uid="uid://cn8ue7j7na7v" path="res://Assets/Audio/level 5 intro.mp3" id="5_lpaek"]
 [ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="7_fludk"]
@@ -71,18 +71,18 @@ autoplay = true
 [node name="PulseCheckTimer" type="Timer" parent="."]
 
 [node name="Button" parent="." instance=ExtResource("7_fludk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39654, 1.54641, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12.6733, 2.81542, -13.9714)
 
 [node name="Unlocker" parent="." instance=ExtResource("8_hi05m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45796, 1.47212, -3.31298)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 14.4111, 3.54848, -4.97911)
 
 [node name="ConnectorHandler" parent="." instance=ExtResource("9_jvn4n")]
 
 [node name="LogicProducer1" parent="." instance=ExtResource("10_gx5s5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282041, 1.50346, -4.76837e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.9104, 4.53823, 12.0508)
 
 [node name="LogicProducer2" parent="." instance=ExtResource("10_gx5s5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07992, 1.52453, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14247, 4.56641, -29.7655)
 
 [node name="LeDoor" parent="." instance=ExtResource("11_2n03u")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.851776, 1.4674, -3.34323)

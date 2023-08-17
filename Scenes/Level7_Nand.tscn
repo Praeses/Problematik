@@ -60,13 +60,13 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9795, 1.54228, 0)
 
 [node name="Unlocker" parent="." instance=ExtResource("9_yt381")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08651, 1.55566, -2.33162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08651, 1.49292, -2.33162)
 
 [node name="LogicProducer1" parent="." instance=ExtResource("3_rxc18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30794, 1.50803, 2.70548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4958, 2.52102, -20.5232)
 
 [node name="LogicProducer2" parent="." instance=ExtResource("3_rxc18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00848, 1.51953, 2.78813)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5522, 2.52603, -25.6081)
 
 [node name="LeDoor" parent="." instance=ExtResource("10_v02yp")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.95822, 1.42258, -6.25402)
