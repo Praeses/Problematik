@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_08uio"]
 [ext_resource type="Script" path="res://Scenes/Level4_Or.gd" id="1_60n5r"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_otfkw"]
-[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
 [ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_2brkt"]
 [ext_resource type="AudioStream" uid="uid://btcrt6b432l81" path="res://Assets/Audio/level 4 intro.mp3" id="5_iw43m"]
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="7_u7ep3"]

@@ -12,6 +12,8 @@ extends Node3D
 
 @export var debug_key_enabled := false
 
+signal area_entered()
+
 # Use a flag to track the current active mesh
 var is_mesh1_active: bool = true
 
@@ -48,3 +50,8 @@ func _set_mesh(value: bool):
 
 func _open():
 	_set_mesh(false)
+
+
+func _on_area_3d_body_entered(body):
+	area_entered.emit()
+	pass # Replace with function body.

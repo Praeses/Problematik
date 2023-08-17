@@ -33,9 +33,12 @@ material_override = SubResource("StandardMaterial3D_ejfhn")
 
 [node name="Area3D" type="Area3D" parent="Mesh2"]
 collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4598, 0)
 shape = SubResource("BoxShape3D_n5fgf")
+
+[connection signal="body_entered" from="Mesh2/Area3D" to="." method="_on_area_3d_body_entered"]
 
 [editable path="Mesh2/doorPortal"]
