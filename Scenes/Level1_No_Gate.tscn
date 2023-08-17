@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://1yb1gnrrm84r"]
+[gd_scene load_steps=10 format=3 uid="uid://1yb1gnrrm84r"]
 
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_our7d"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_yotpv"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="3_ww4o0"]
+[ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="4_kt7kd"]
 [ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_xxq8b"]
 [ext_resource type="AudioStream" uid="uid://b3fc22mtbj8ba" path="res://Assets/Audio/level 1 intro.mp3" id="5_hmojp"]
 
@@ -50,3 +51,10 @@ autoplay = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_hmojp")
 autoplay = true
+
+[node name="ConnectorHandler" parent="." instance=ExtResource("4_kt7kd")]
+
+[connection signal="gate_added" from="Player" to="ConnectorHandler" method="_on_player_gate_added"]
+[connection signal="gate_removed" from="Player" to="ConnectorHandler" method="_on_player_gate_removed"]
+[connection signal="laser_connected" from="Player" to="ConnectorHandler" method="_on_player_laser_connected"]
+[connection signal="laser_disconnected" from="Player" to="ConnectorHandler" method="_on_player_laser_disconnected"]

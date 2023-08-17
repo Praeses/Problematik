@@ -1,5 +1,18 @@
 extends CharacterBody3D
+class_name Player
 
+
+signal gate_added(position: Vector3, normal: Vector3, type: int)
+signal gate_removed(extender: Node3D)
+
+signal laser_connected(source: Node3D, destination: Node3D)
+signal laser_disconnected(node: Node3D)
+
+const LASER := 0
+const EXTENDER := 1
+const NOTTER := 2
+const ANDER := 3
+const ORER := 4
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -9,6 +22,9 @@ var pitch_input := 0.0
 var tool_index := 0
 var new_tool_index := 0
 var switching_tool := false
+
+var _source: Node3D = null
+var _destination: Node3D = null
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -32,6 +48,68 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	$Twist/Pitch/Tool/Tool5
 ]
 
+func _input(event):
+	if Input.is_action_just_pressed("left_click") && !switching_tool:
+		var ray_result = tools[tool_index].fire_ray()
+		if ray_result.has("collider") && ray_result.has("normal") && ray_result.has("point"):
+			var collider = ray_result["collider"]
+			var normal = ray_result["normal"]
+			var point = ray_result["point"]
+			
+			if tool_index == LASER:
+				if collider.is_in_group("Connector"):
+					if _source == null:
+						_source = collider
+					elif _destination == null:
+						_destination = collider
+						laser_connected.emit(_source, _destination)
+						_source = _destination
+						_destination = null
+					else:
+						_destination = collider
+						laser_connected.emit(_source, _destination)
+				pass
+			elif tool_index == EXTENDER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, EXTENDER)
+			elif tool_index == NOTTER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, NOTTER)
+			elif tool_index == ANDER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, ANDER)
+				pass
+			elif tool_index == ORER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, ORER)
+				pass
+			print(ray_result)
+	elif Input.is_action_just_pressed("right_click") && !switching_tool:
+		var ray_result = tools[tool_index].fire_ray()
+		if ray_result.has("collider") && ray_result.has("normal") && ray_result.has("point"):
+			var collider = ray_result["collider"]
+			var normal = ray_result["normal"]
+			var point = ray_result["point"]
+			
+			if tool_index == LASER:
+				if _source != null:
+					_source = null
+				else:
+					if collider.is_in_group("Connector"):
+						laser_disconnected.emit(collider)
+			elif tool_index == EXTENDER:
+				if collider.is_in_group("Connector") && collider.owner.owner is Extender:
+					gate_removed.emit(collider)
+			elif tool_index == NOTTER:
+				if collider.is_in_group("Connector") && collider.owner.owner is NotGate:
+					gate_removed.emit(collider)
+			elif tool_index == ANDER:
+				if collider.is_in_group("Connector") && collider.owner.owner is AndGate:
+					gate_removed.emit(collider)
+			elif tool_index == ORER:
+				if collider.is_in_group("Connector") && collider.owner.owner is OrGate:
+					gate_removed.emit(collider)
+			pass
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

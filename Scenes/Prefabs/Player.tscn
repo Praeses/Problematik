@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/Player.gd" id="1_pi4w3"]
 [ext_resource type="Texture2D" uid="uid://d3ijfpkwjis1h" path="res://Assets/Texture/tool_bar_border.png" id="2_f7ulo"]
+[ext_resource type="PackedScene" uid="uid://bbhaibwj3gxco" path="res://Scenes/Prefabs/Tool.tscn" id="2_wel3o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oa4m4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x5a77"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_lsawl"]
-size = Vector3(0.2, 0.2, 1)
 
 [sub_resource type="Animation" id="Animation_exd47"]
 resource_name = "Draw"
@@ -53,53 +51,29 @@ mesh = SubResource("CapsuleMesh_x5a77")
 
 [node name="Camera3D" type="Camera3D" parent="Twist/Pitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83636, 0)
+current = true
 
 [node name="Tool" type="Node3D" parent="Twist/Pitch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
 
-[node name="Tool1" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.425024)
-mesh = SubResource("BoxMesh_lsawl")
+[node name="Tool1" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
+tool_name = "Laserer"
 
-[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool1"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.102043, -0.262886)
-text = "Tool1"
-
-[node name="Tool2" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.425024)
+[node name="Tool2" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
-mesh = SubResource("BoxMesh_lsawl")
+tool_name = "Extederer"
 
-[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool2"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.102043, -0.262886)
-text = "Tool2"
-
-[node name="Tool3" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.425024)
+[node name="Tool3" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
-mesh = SubResource("BoxMesh_lsawl")
+tool_name = "Notter"
 
-[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool3"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.102043, -0.262886)
-text = "Tool3"
-
-[node name="Tool4" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.425024)
+[node name="Tool4" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
-mesh = SubResource("BoxMesh_lsawl")
+tool_name = "Ander"
 
-[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool4"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.102043, -0.262886)
-text = "Tool4"
-
-[node name="Tool5" type="MeshInstance3D" parent="Twist/Pitch/Tool"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.425024)
+[node name="Tool5" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
-mesh = SubResource("BoxMesh_lsawl")
-
-[node name="Label3D" type="Label3D" parent="Twist/Pitch/Tool/Tool5"]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.102043, -0.262886)
-text = "Tool5"
+tool_name = "Orer"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Twist/Pitch/Tool"]
 libraries = {

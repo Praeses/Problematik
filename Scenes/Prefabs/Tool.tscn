@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbhaibwj3gxco"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/Tool.gd" id="1_k6r00"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lsawl"]
+size = Vector3(0.2, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrg1x"]
+transparency = 1
+albedo_color = Color(0.341176, 0.247059, 1, 0.517647)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t0b0f"]
+material = SubResource("StandardMaterial3D_vrg1x")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.01
+
+[node name="Tool1" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.425024)
+mesh = SubResource("BoxMesh_lsawl")
+script = ExtResource("1_k6r00")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.102043, -0.262886)
+text = "Tool1"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.503443)
+mesh = SubResource("CylinderMesh_t0b0f")

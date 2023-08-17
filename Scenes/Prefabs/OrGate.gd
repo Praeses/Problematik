@@ -1,4 +1,5 @@
 extends Node3D
+class_name OrGate
 
 signal pulsed(value: bool)
 
@@ -7,6 +8,9 @@ var _input1_state = false;
 var _received_input1_value = false;
 var _input2_state = false;
 var _received_input2_value = false;
+
+func get_connectable_nodes():
+	return [$InputConnector1/Node/StaticBody3D, $InputConnector2/Node/StaticBody3D, $OutputConnector/Node/StaticBody3D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

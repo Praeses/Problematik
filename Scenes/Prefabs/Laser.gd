@@ -13,6 +13,7 @@ func set_source(source: Node3D):
 	if source.owner is Connector:
 		self.source = source
 		source.owner.pulsed.connect(_on_pulsed)
+		update()
 		print("[Laser] - Source pulsed signal connected to Laser")
 	else:
 		print("[Laser] - Source not a Connector, skipping")
@@ -21,12 +22,14 @@ func set_source(source: Node3D):
 func remove_source():
 	source.owner.pulsed.disconnect(_on_pulsed)
 	source = null
+	update()
 
 
 func set_destination(destination: Node3D):
 	if destination.owner is Connector:
 		self.destination = destination
 		pulsed.connect(self.destination.owner._on_pulsed)
+		update()
 		print("[Laser] - Laser pulsed signal connected to Destination")
 	else:
 		print("[Laser] - Destination not a Connector, skipping")
@@ -35,6 +38,7 @@ func set_destination(destination: Node3D):
 func remove_destination():
 	destination = null
 	pulsed.disconnect(destination.owner._on_pulsed)
+	update()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,8 +46,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func update():
 	if source:
 		global_position = source.global_position
 		print("Laser Source: " + str(position))
