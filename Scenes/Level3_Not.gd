@@ -69,3 +69,9 @@ func _on_unlocker_pulsed(value):
 	else :
 		pulsed.emit(pulses[pulse_idx])
 		pulse_idx += 1
+
+
+func _on_le_door_area_entered():
+	$"/root/GameState".level_index = 4
+	get_tree().change_scene_to_file("res://Scenes/Transition.tscn")
+

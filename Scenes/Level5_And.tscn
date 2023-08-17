@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Scenes/Level5_And.gd" id="1_nmb3l"]
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_ss7nm"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_loyv0"]
-[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_nsfci"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_nsfci"]
 [ext_resource type="AudioStream" uid="uid://ci3gfs3ph1ujc" path="res://Assets/Audio/winter problem.mp3" id="4_op0vf"]
 [ext_resource type="AudioStream" uid="uid://cn8ue7j7na7v" path="res://Assets/Audio/level 5 intro.mp3" id="5_lpaek"]
-[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="7_fludk"]
-[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_hi05m"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Button.tscn" id="7_fludk"]
+[ext_resource type="PackedScene" uid="uid://bx58x13donmkk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_hi05m"]
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="9_jvn4n"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="10_gx5s5"]
 [ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="11_2n03u"]
@@ -25,7 +25,7 @@ sky = SubResource("Sky_6p0ck")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="DebugLevel" type="Node3D"]
+[node name="DebugLevel3" type="Node3D"]
 script = ExtResource("1_nmb3l")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -45,6 +45,7 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_loyv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64441, 2.8251, 4.12878)
+collision_layer = 5
 
 [node name="StaticBody3D" parent="." instance=ExtResource("3_nsfci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1008, 4.90006, -25.3376)
@@ -86,3 +87,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14247, 4.56641, -29.7655)
 
 [node name="LeDoor" parent="." instance=ExtResource("11_2n03u")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.851776, 1.4674, -3.34323)
+
+[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]
