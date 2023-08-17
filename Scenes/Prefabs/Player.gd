@@ -2,13 +2,17 @@ extends CharacterBody3D
 class_name Player
 
 
-signal extender_added(position: Vector3, normal: Vector3)
-signal extender_removed(extender: Node3D)
+signal gate_added(position: Vector3, normal: Vector3, type: int)
+signal gate_removed(extender: Node3D)
+
 signal laser_connected(source: Node3D, destination: Node3D)
 signal laser_disconnected(node: Node3D)
 
 const LASER := 0
 const EXTENDER := 1
+const NOTTER := 2
+const ANDER := 3
+const ORER := 4
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -67,7 +71,13 @@ func _input(event):
 				pass
 			elif tool_index == EXTENDER:
 				if not collider.is_in_group("Connector"):
-					extender_added.emit(point, normal)
+					gate_added.emit(point, normal, EXTENDER)
+			elif tool_index == NOTTER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, NOTTER)
+			elif tool_index == ANDER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, ANDER)
 				pass
 			print(ray_result)
 	elif Input.is_action_just_pressed("right_click") && !switching_tool:
@@ -85,7 +95,13 @@ func _input(event):
 						laser_disconnected.emit(collider)
 			elif tool_index == EXTENDER:
 				if collider.is_in_group("Connector") && collider.owner.owner is Extender:
-					extender_removed.emit(collider)
+					gate_removed.emit(collider)
+			elif tool_index == NOTTER:
+				if collider.is_in_group("Connector") && collider.owner.owner is NotGate:
+					gate_removed.emit(collider)
+			elif tool_index == ANDER:
+				if collider.is_in_group("Connector") && collider.owner.owner is AndGate:
+					gate_removed.emit(collider)
 			pass
 
 func _ready():

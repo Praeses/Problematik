@@ -1,10 +1,24 @@
 extends Node3D
 
-var extenders := []
+var gate_list := []
 var lasers := []
 
 const extender_scene := preload("res://Scenes/Prefabs/Extender.tscn")
+const not_gate_scene := preload("res://Scenes/Prefabs/NotGate.tscn")
+const and_gate_scene := preload("res://Scenes/Prefabs/AndGate.tscn")
 const laser_scene := preload("res://Scenes/Prefabs/Laser.tscn")
+
+const EXTENDER := 1
+const NOT_GATE := 2
+const AND_GATE := 3
+const OR_GATE := 4
+
+const gate_dict = {
+	EXTENDER = extender_scene,
+	NOT_GATE = not_gate_scene,
+	AND_GATE = and_gate_scene,
+	OR_GATE = extender_scene # TODO: Add or gate
+}
 
 func align_up(node_basis, normal):
 	var result = Basis()
@@ -32,32 +46,36 @@ func _process(delta):
 	pass
 
 
-func _on_extender_added(position: Vector3, normal: Vector3):
-	var extender = extender_scene.instantiate()
-	add_child(extender)
-	extender.position = position
-	extender.look_at(normal)
-	extender.global_transform.basis = align_up(extender.global_transform.basis, normal)
+func _get_gate_instance(type: int):
+	if type == EXTENDER:
+		return extender_scene.instantiate()
+	elif type == NOT_GATE:
+		return not_gate_scene.instantiate()
+	elif type == AND_GATE:
+		return and_gate_scene.instantiate()
+	elif type == OR_GATE:
+		# TODO: Add Or Gate
+		return extender_scene.instantiate()
 	pass
 
 
-func _on_player_extender_added(position, normal):
-	var extender = extender_scene.instantiate()
-	add_child(extender)
-	extender.position = position
-	extender.look_at(normal)
-	extender.global_transform.basis = align_up(extender.global_transform.basis, normal)
-	extenders.append(extender)
+func _on_player_gate_added(position: Vector3, normal: Vector3, type: int):
+	var gate = _get_gate_instance(type)
+	add_child(gate)
+	gate.position = position
+	gate.look_at(normal)
+	gate.global_transform.basis = align_up(gate.global_transform.basis, normal)
+	gate_list.append(gate)
 	pass # Replace with function body.
 
 
-func _on_player_extender_removed(extender):
-	var filtered_lasers = _get_lasers_connected_to_connector(extender)
+func _on_player_gate_removed(node):
+	var filtered_lasers = _get_lasers_connected_to_connector(node)
 	for laser in filtered_lasers:
 		lasers.erase(laser)
 		laser.queue_free()
-	extenders.erase(extender)
-	extender.owner.owner.queue_free()
+	gate_list.erase(node)
+	node.owner.owner.queue_free()
 	pass # Replace with function body.
 
 

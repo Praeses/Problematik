@@ -54,7 +54,7 @@ stream = ExtResource("5_hmojp")
 autoplay = true
 [node name="ConnectorHandler" parent="." instance=ExtResource("4_kt7kd")]
 
-[connection signal="extender_added" from="Player" to="ConnectorHandler" method="_on_player_extender_added"]
-[connection signal="extender_removed" from="Player" to="ConnectorHandler" method="_on_player_extender_removed"]
+[connection signal="gate_added" from="Player" to="ConnectorHandler" method="_on_player_gate_added"]
+[connection signal="gate_removed" from="Player" to="ConnectorHandler" method="_on_player_gate_removed"]
 [connection signal="laser_connected" from="Player" to="ConnectorHandler" method="_on_player_laser_connected"]
 [connection signal="laser_disconnected" from="Player" to="ConnectorHandler" method="_on_player_laser_disconnected"]

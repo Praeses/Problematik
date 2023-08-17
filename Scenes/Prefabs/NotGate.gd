@@ -1,4 +1,5 @@
 extends Node3D
+class_name NotGate
 
 signal pulsed(value: bool)
 
