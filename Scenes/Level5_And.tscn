@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ypucc63iifvy"]
+[gd_scene load_steps=17 format=3 uid="uid://ypucc63iifvy"]
 
 [ext_resource type="Script" path="res://Scenes/Level5_And.gd" id="1_nmb3l"]
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_ss7nm"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="9_jvn4n"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="10_gx5s5"]
 [ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="11_2n03u"]
+[ext_resource type="PackedScene" uid="uid://dhv4gcnfx6h6d" path="res://Assets/Meshes/Scatter/treePineSnow-col.glb" id="12_nklji"]
+[ext_resource type="PackedScene" uid="uid://ckdvgrosjyx0g" path="res://Assets/Meshes/Scatter/treePineSmallSnow-col.glb" id="13_eoplf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vo16c"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -89,3 +91,96 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14247, 4.56641, -29.7655)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.851776, 1.4674, -3.34323)
 
 [connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]
+
+[node name="treePineSnow-col" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2587, 8.5, -19.0499)
+
+[node name="treePineSnow-col2" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0432, 7.5, -23.8823)
+
+[node name="treePineSnow-col3" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2107, 6.5, -27.0696)
+
+[node name="treePineSnow-col4" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0432, 6.5, -9.89907)
+
+[node name="treePineSnow-col5" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2023, 7.5, -2.70184)
+
+[node name="treePineSmallSnow-col" parent="." instance=ExtResource("13_eoplf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5755, 5.5, -11.5442)
+
+[node name="treePineSnow-col6" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6037, 7.5, 7.78556)
+
+[node name="treePineSnow-col7" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8657, 8.5, 15.7025)
+
+[node name="treePineSnow-col8" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.1643, 7.5, 18.4786)
+
+[node name="treePineSnow-col9" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4529, 8.5, 31.6392)
+
+[node name="treePineSnow-col10" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4072, 7.5, 29.9244)
+
+[node name="treePineSnow-col11" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0043, 7.5, 32.2892)
+
+[node name="treePineSnow-col12" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.11556, 8.5, 35.3737)
+
+[node name="treePineSnow-col13" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66623, 6.5, 29.7188)
+
+[node name="treePineSnow-col14" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170427, 6.5, 30.3357)
+
+[node name="treePineSnow-col15" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55918, 6.5, 25.4004)
+
+[node name="treePineSnow-col16" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39161, 6.5, 20.1567)
+
+[node name="treePineSnow-col17" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7663, 6.5, 13.5764)
+
+[node name="treePineSnow-col18" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1593, 6.5, -2.77158)
+
+[node name="treePineSnow-col19" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7848, 6.5, -14.1977)
+
+[node name="treePineSnow-col20" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0749, 7.5, -17.5906)
+
+[node name="treePineSnow-col21" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7581, 7.5, -22.0118)
+
+[node name="treePineSnow-col22" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3088, 7.5, -24.5822)
+
+[node name="treePineSnow-col23" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6454, 7.5, -20.778)
+
+[node name="treePineSnow-col24" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6355, 7.5, -31.1626)
+
+[node name="treePineSnow-col25" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.027, 6.5, -31.3682)
+
+[node name="treePineSnow-col26" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08186, 6.5, -31.7795)
+
+[node name="treePineSnow-col27" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76046, 6.5, -33.0133)
+
+[node name="treePineSnow-col28" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.561, 7.5, -37.0389)
+
+[node name="treePineSnow-col29" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4879, 6.5, -34.4685)
+
+[node name="treePineSnow-col30" parent="." instance=ExtResource("12_nklji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9837, 6.5, -36.0107)
