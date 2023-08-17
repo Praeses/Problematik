@@ -94,7 +94,7 @@ func _physics_process(delta):
 	
 	twist.rotate_y(twist_input)
 	pitch.rotate_x(pitch_input)
-	pitch.rotation.x = clamp(pitch.rotation.x, deg_to_rad(-30), deg_to_rad(30))
+	pitch.rotation.x = clamp(pitch.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	twist_input = 0.0
 	pitch_input = 0.0
 	
