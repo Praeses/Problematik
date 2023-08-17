@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://p6nxh3tsxd55"]
+[gd_scene load_steps=7 format=3 uid="uid://da7abfqdrue5x"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/door.gd" id="1_f67pb"]
 [ext_resource type="PackedScene" uid="uid://cocjnui47frbw" path="res://Assets/Meshes/Scatter/doorClosed-col.glb" id="2_8clah"]
 [ext_resource type="PackedScene" uid="uid://d0qm22mql4mbt" path="res://Assets/Meshes/Scatter/doorOpen-col.glb" id="3_n8si1"]
+[ext_resource type="PackedScene" uid="uid://dcm04fhkld1u4" path="res://Assets/Meshes/Scatter/doorPortal.glb" id="4_sv2yp"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejfhn"]
+albedo_color = Color(0.913725, 0.847059, 0.996078, 1)
+emission_enabled = true
+emission = Color(0, 0.960784, 0.639216, 1)
+emission_energy_multiplier = 9.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5fgf"]
+size = Vector3(0.586056, 0.920748, 0.140622)
+
+[node name="LeDoor" type="Node3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_f67pb")
 
@@ -15,3 +25,17 @@ script = ExtResource("1_f67pb")
 [node name="Mesh2" type="MeshInstance3D" parent="."]
 
 [node name="doorOpen" parent="Mesh2" instance=ExtResource("3_n8si1")]
+
+[node name="doorPortal" parent="Mesh2" instance=ExtResource("4_sv2yp")]
+
+[node name="doorPortal2" parent="Mesh2/doorPortal" index="0"]
+material_override = SubResource("StandardMaterial3D_ejfhn")
+
+[node name="Area3D" type="Area3D" parent="Mesh2"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4598, 0)
+shape = SubResource("BoxShape3D_n5fgf")
+
+[editable path="Mesh2/doorPortal"]

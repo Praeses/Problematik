@@ -8,6 +8,7 @@ var results := []
 var checking := false
 
 signal pulsed(value: bool)
+signal puzzle_solved()
 
 @onready var pulse_timer := $PulseCheckTimer
 
@@ -40,7 +41,7 @@ func _on_pulse_check_timer_timeout():
 
 func _on_unlocker_pulsed(value):
 	results.append(value)
-	if results.size() >= pulses.size():
+	if results.size() >= pulses.size() or pulse_idx >= pulses.size():
 		var success = true
 		for i in range(0, results.size()):
 			success = (results[i] == expected_results[i]) and success
@@ -48,6 +49,7 @@ func _on_unlocker_pulsed(value):
 		checking = false
 		
 		if success:
+			puzzle_solved.emit()
 			print("DING! You win!")
 	else :
 		pulsed.emit(pulses[pulse_idx])
