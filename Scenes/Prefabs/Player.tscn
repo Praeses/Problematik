@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmm6vfpbo1n6f"]
+[gd_scene load_steps=10 format=3 uid="uid://dmm6vfpbo1n6f"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/Player.gd" id="1_pi4w3"]
 [ext_resource type="Texture2D" uid="uid://d3ijfpkwjis1h" path="res://Assets/Texture/tool_bar_border.png" id="2_f7ulo"]
 [ext_resource type="PackedScene" uid="uid://bbhaibwj3gxco" path="res://Scenes/Prefabs/Tool.tscn" id="2_wel3o"]
+[ext_resource type="ArrayMesh" uid="uid://cu8qc80aku5kw" path="res://Assets/Meshes/Tools/blasterD.obj" id="3_8tyqr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oa4m4"]
 
@@ -57,23 +58,43 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
 
 [node name="Tool1" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
+mesh = ExtResource("3_8tyqr")
 tool_name = "Laserer"
+
+[node name="Label3D" parent="Twist/Pitch/Tool/Tool1" index="0"]
+transform = Transform3D(1.91069e-15, 1.06581e-14, -1, -4.37114e-08, 1, 1.06581e-14, 1, 4.37114e-08, 1.91069e-15, -0.0844372, 0.0494658, -0.262886)
 
 [node name="Tool2" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
+mesh = ExtResource("3_8tyqr")
 tool_name = "Extederer"
+
+[node name="Label3D" parent="Twist/Pitch/Tool/Tool2" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0553687, 0.102043, -0.262886)
 
 [node name="Tool3" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
+mesh = ExtResource("3_8tyqr")
 tool_name = "Notter"
+
+[node name="Label3D" parent="Twist/Pitch/Tool/Tool3" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0522405, 0.102043, -0.262886)
 
 [node name="Tool4" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
+mesh = ExtResource("3_8tyqr")
 tool_name = "Ander"
+
+[node name="Label3D" parent="Twist/Pitch/Tool/Tool4" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0522058, 0.102043, -0.262886)
 
 [node name="Tool5" parent="Twist/Pitch/Tool" instance=ExtResource("2_wel3o")]
 visible = false
+mesh = ExtResource("3_8tyqr")
 tool_name = "Orer"
+
+[node name="Label3D" parent="Twist/Pitch/Tool/Tool5" index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0586534, 0.102043, -0.262886)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Twist/Pitch/Tool"]
 libraries = {
@@ -165,3 +186,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="animation_finished" from="Twist/Pitch/Tool/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="Twist/Pitch/Tool/Tool1"]
+[editable path="Twist/Pitch/Tool/Tool2"]
+[editable path="Twist/Pitch/Tool/Tool3"]
+[editable path="Twist/Pitch/Tool/Tool4"]
+[editable path="Twist/Pitch/Tool/Tool5"]
