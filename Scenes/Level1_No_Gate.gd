@@ -73,4 +73,3 @@ func _on_unlocker_pulsed(value):
 func _on_le_door_area_entered():
 	$"/root/GameState".level_index = 2
 	get_tree().change_scene_to_file("res://Scenes/Transition.tscn")
-	pass # Replace with function body.

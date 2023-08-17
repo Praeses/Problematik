@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="4_kt7kd"]
 [ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_xxq8b"]
 [ext_resource type="AudioStream" uid="uid://b3fc22mtbj8ba" path="res://Assets/Audio/level 1 intro.mp3" id="5_hmojp"]
-[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="7_nqc8r"]
-[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="8_3mf7t"]
+[ext_resource type="PackedScene" uid="uid://bx58x13donmkk" path="res://Scenes/Prefabs/Unlocker.tscn" id="7_nqc8r"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Button.tscn" id="8_3mf7t"]
 [ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="10_1j18m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vo16c"]
@@ -83,3 +83,4 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.01929, 1.48473, 19.5681)
 [connection signal="pulsed" from="Unlocker" to="." method="_on_unlocker_pulsed"]
 [connection signal="clicked" from="Button" to="." method="_on_button_clicked"]
 [connection signal="timeout" from="PulseCheckTimer" to="." method="_on_pulse_check_timer_timeout"]
+[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]

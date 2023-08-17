@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_2brkt"]
 [ext_resource type="AudioStream" uid="uid://btcrt6b432l81" path="res://Assets/Audio/level 4 intro.mp3" id="5_iw43m"]
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="7_u7ep3"]
-[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_l6bqt"]
-[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="9_wogex"]
+[ext_resource type="PackedScene" uid="uid://bx58x13donmkk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_l6bqt"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Button.tscn" id="9_wogex"]
 [ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="10_d4k5t"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="11_ie2ng"]
 
@@ -25,7 +25,7 @@ sky = SubResource("Sky_lefxr")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="DebugLevel" type="Node3D"]
+[node name="DebugLevel3" type="Node3D"]
 script = ExtResource("1_60n5r")
 pulse_timeout = 30
 
@@ -60,6 +60,7 @@ distance = 5.0
 
 [node name="Player" parent="." instance=ExtResource("2_otfkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3919, 2.88884, 4.08383)
+collision_layer = 5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2brkt")
@@ -88,3 +89,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -21.06
 
 [node name="LogicProducer2" parent="." instance=ExtResource("11_ie2ng")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -19.3355, 3.78656, -3.01026)
+
+[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]
