@@ -2,6 +2,7 @@ extends Node3D
 class_name Laser
 
 @onready var _mesh := $MeshInstance3D
+@onready var laser_stream := $LaserStream
 
 var source: Node3D
 var destination: Node3D
@@ -59,6 +60,9 @@ func update():
 		var direction = source.global_position.direction_to(destination.global_position)
 		
 		_mesh.position.z = -distance/2
+	
+	if source != null and destination != null && !laser_stream.playing:
+		laser_stream.play()
 	pass
 
 
