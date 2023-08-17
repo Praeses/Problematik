@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbhaibwj3gxco"]
+[gd_scene load_steps=6 format=3 uid="uid://bbhaibwj3gxco"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/Tool.gd" id="1_k6r00"]
+[ext_resource type="AudioStream" uid="uid://cjd7v8u7sa1ch" path="res://Assets/Audio/Kenny/laserLarge_002.ogg" id="2_0apsh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lsawl"]
 size = Vector3(0.2, 0.2, 1)
@@ -31,3 +32,6 @@ collision_mask = 3
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.503443)
 mesh = SubResource("CylinderMesh_t0b0f")
+
+[node name="PewStream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_0apsh")

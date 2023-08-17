@@ -4,6 +4,7 @@ class_name Tool
 @export var tool_reach := 20.0
 @onready var raycast := $RayCast3D
 @export var tool_name := "Tool ?"
+@onready var pew_stream := $PewStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,9 @@ func _process(delta):
 
 
 func fire_ray() -> Dictionary:
+	if !pew_stream.playing:
+		pew_stream.play()
+	
 	raycast.force_raycast_update()
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
