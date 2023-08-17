@@ -71,18 +71,22 @@ func _input(event):
 				pass
 			print(ray_result)
 	elif Input.is_action_just_pressed("right_click") && !switching_tool:
-		if tool_index == LASER:
-			if _source != null:
-				_source = null
-			else:
-				var ray_result = tools[tool_index].fire_ray()
-				if ray_result.has("collider") && ray_result.has("normal") && ray_result.has("point"):
-					var collider = ray_result["collider"]
-					var normal = ray_result["normal"]
-					var point = ray_result["point"]
+		var ray_result = tools[tool_index].fire_ray()
+		if ray_result.has("collider") && ray_result.has("normal") && ray_result.has("point"):
+			var collider = ray_result["collider"]
+			var normal = ray_result["normal"]
+			var point = ray_result["point"]
+			
+			if tool_index == LASER:
+				if _source != null:
+					_source = null
+				else:
 					if collider.is_in_group("Connector"):
 						laser_disconnected.emit(collider)
-		pass
+			elif tool_index == EXTENDER:
+				if collider.is_in_group("Connector") && collider.owner.owner is Extender:
+					extender_removed.emit(collider)
+			pass
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

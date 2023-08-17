@@ -51,6 +51,16 @@ func _on_player_extender_added(position, normal):
 	pass # Replace with function body.
 
 
+func _on_player_extender_removed(extender):
+	var filtered_lasers = _get_lasers_connected_to_connector(extender)
+	for laser in filtered_lasers:
+		lasers.erase(laser)
+		laser.queue_free()
+	extenders.erase(extender)
+	extender.owner.owner.queue_free()
+	pass # Replace with function body.
+
+
 func _on_player_laser_connected(source, destination):
 	var duplicates = lasers.filter(func (laser): return laser.source == source && laser.destination == destination)
 	if(duplicates.is_empty()):
@@ -65,8 +75,12 @@ func _on_player_laser_connected(source, destination):
 
 
 func _on_player_laser_disconnected(node):
-	var filtered_lasers = lasers.filter(func(laser): return laser.source == node || laser.destination == node)
+	var filtered_lasers = _get_lasers_connected_to_connector(node)
 	for laser in filtered_lasers:
 		lasers.erase(laser)
 		laser.queue_free()
 	pass # Replace with function body.
+
+
+func _get_lasers_connected_to_connector(node):
+	return lasers.filter(func(laser): return laser.source == node || laser.destination == node)
