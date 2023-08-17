@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://da7abfqdrue5x"]
+[gd_scene load_steps=8 format=3 uid="uid://da7abfqdrue5x"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/door.gd" id="1_f67pb"]
 [ext_resource type="PackedScene" uid="uid://cocjnui47frbw" path="res://Assets/Meshes/Scatter/doorClosed-col.glb" id="2_8clah"]
 [ext_resource type="PackedScene" uid="uid://d0qm22mql4mbt" path="res://Assets/Meshes/Scatter/doorOpen-col.glb" id="3_n8si1"]
 [ext_resource type="PackedScene" uid="uid://dcm04fhkld1u4" path="res://Assets/Meshes/Scatter/doorPortal.glb" id="4_sv2yp"]
+[ext_resource type="AudioStream" uid="uid://dpqlvx0xwsnmu" path="res://Assets/Audio/Kenny/doorOpen_2.ogg" id="5_npxs6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejfhn"]
 albedo_color = Color(0.913725, 0.847059, 0.996078, 1)
@@ -38,6 +39,9 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4598, 0)
 shape = SubResource("BoxShape3D_n5fgf")
+
+[node name="OpenStream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_npxs6")
 
 [connection signal="body_entered" from="Mesh2/Area3D" to="." method="_on_area_3d_body_entered"]
 

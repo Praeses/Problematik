@@ -14,6 +14,8 @@ const NOT_GATE := 2
 const AND_GATE := 3
 const OR_GATE := 4
 
+@onready var placer_stream := $PlacerStream
+
 const gate_dict = {
 	EXTENDER = extender_scene,
 	NOT_GATE = not_gate_scene,
@@ -72,6 +74,7 @@ func _on_player_gate_added(position: Vector3, normal: Vector3, type: int):
 	gate.look_at(normal)
 	gate.global_transform.basis = align_up(gate.global_transform.basis, normal)
 	gate_list.append(gate)
+	placer_stream.play()
 	pass # Replace with function body.
 
 
