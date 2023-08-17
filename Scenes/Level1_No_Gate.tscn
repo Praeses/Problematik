@@ -55,3 +55,5 @@ autoplay = true
 [node name="ConnectorHandler" parent="." instance=ExtResource("4_kt7kd")]
 
 [connection signal="extender_added" from="Player" to="ConnectorHandler" method="_on_player_extender_added"]
+[connection signal="laser_connected" from="Player" to="ConnectorHandler" method="_on_player_laser_connected"]
+[connection signal="laser_disconnected" from="Player" to="ConnectorHandler" method="_on_player_laser_disconnected"]

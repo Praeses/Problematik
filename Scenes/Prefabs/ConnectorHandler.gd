@@ -1,8 +1,10 @@
 extends Node3D
 
 var extenders := []
+var lasers := []
 
 const extender_scene := preload("res://Scenes/Prefabs/Extender.tscn")
+const laser_scene := preload("res://Scenes/Prefabs/Laser.tscn")
 
 func align_up(node_basis, normal):
 	var result = Basis()
@@ -45,4 +47,26 @@ func _on_player_extender_added(position, normal):
 	extender.position = position
 	extender.look_at(normal)
 	extender.global_transform.basis = align_up(extender.global_transform.basis, normal)
+	extenders.append(extender)
+	pass # Replace with function body.
+
+
+func _on_player_laser_connected(source, destination):
+	var duplicates = lasers.filter(func (laser): return laser.source == source && laser.destination == destination)
+	if(duplicates.is_empty()):
+		var laser_instance = laser_scene.instantiate()
+		add_child(laser_instance)
+		laser_instance.set_source(source)
+		laser_instance.set_destination(destination)
+		lasers.append(laser_instance)
+	else:
+		print("[ConnectionHandler] - There was a duplicate laser :(")
+	pass # Replace with function body.
+
+
+func _on_player_laser_disconnected(node):
+	var filtered_lasers = lasers.filter(func(laser): return laser.source == node || laser.destination == node)
+	for laser in filtered_lasers:
+		lasers.erase(laser)
+		laser.queue_free()
 	pass # Replace with function body.
