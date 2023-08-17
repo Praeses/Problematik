@@ -5,6 +5,9 @@ signal pulsed(value: bool)
 
 var _state = false
 
+func get_connectable_nodes():
+	return [$InputConnector/Node/StaticBody3D, $OutputConnector/Node/StaticBody3D]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

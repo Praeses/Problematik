@@ -1,6 +1,9 @@
 extends Node3D
 class_name Extender
 
+func get_connectable_nodes():
+	return [$Connector/Node/StaticBody3D]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
