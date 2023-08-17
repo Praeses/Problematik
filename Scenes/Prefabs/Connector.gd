@@ -49,18 +49,24 @@ func remove_laser(laser: Node3D):
 func _on_pulsed(value: bool):
 	print("[Connector] - Pulse received.")
 	var material = StandardMaterial3D.new()
+	var mesh_mat = $Node.mesh.material
+	
 	material.emission_enabled = true
 	pulse_light.visible = true
 	if value:
 		material.emission = Color(TRUE_EMISSION_COLOR)
 		material.albedo_color = Color(TRUE_EMISSION_COLOR, 0.3)
+		material.roughness = mesh_mat.roughness
+		material.metallic = mesh_mat.metallic
 		pulse_light.light_color = Color(TRUE_EMISSION_COLOR)
 	else:
 		material.emission = Color(FALSE_EMISSION_COLOR)
 		material.albedo_color = Color(FALSE_EMISSION_COLOR, 0.3)
+		material.roughness = mesh_mat.roughness
+		material.metallic = mesh_mat.metallic
 		pulse_light.light_color = Color(FALSE_EMISSION_COLOR)
 	
-	$Node.material_overlay = material
+	$Node.material_override = material
 	
 	pulse_timer.start()
 	_current_value = value
@@ -68,7 +74,7 @@ func _on_pulsed(value: bool):
 
 
 func _on_pulse_timer_timeout():
-	$Node.material_overlay = null
+	$Node.material_override = null
 	pulse_light.visible = false
 	
 	print("[Connector] - Pulsing.")
