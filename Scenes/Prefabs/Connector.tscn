@@ -36,6 +36,8 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tb1lc")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node"]
+
 [node name="PulseTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true

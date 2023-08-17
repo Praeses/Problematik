@@ -60,12 +60,14 @@ func _input(event):
 				collider.owner.click()
 			elif tool_index == LASER:
 				if collider.is_in_group("Connector"):
-					if _source == null:
+					if collider == _source:
+						pass
+					elif _source == null:
 						_source = collider
 					elif _destination == null:
 						_destination = collider
 						laser_connected.emit(_source, _destination)
-						_source = _destination
+						_source = null
 						_destination = null
 					else:
 						_destination = collider
