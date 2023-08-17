@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b736vhnerlegh"]
+[gd_scene load_steps=10 format=3 uid="uid://b736vhnerlegh"]
 
 [ext_resource type="Script" path="res://Scenes/ConnectorDebug.gd" id="1_nmvem"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="3_fyuas"]
 [ext_resource type="PackedScene" uid="uid://ba6vbyu3gtspr" path="res://Assets/Meshes/Blocks/block-col.glb" id="3_kj78s"]
 [ext_resource type="PackedScene" uid="uid://bny5yv23ul3s1" path="res://Scenes/Prefabs/NotGate.tscn" id="4_ba2cd"]
 [ext_resource type="PackedScene" uid="uid://b21lbyigd4kyu" path="res://Scenes/Prefabs/AndGate.tscn" id="5_i5w66"]
+[ext_resource type="PackedScene" uid="uid://bnrtugnowyuyn" path="res://Scenes/Prefabs/OrGate.tscn" id="6_7odr7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ph1ac"]
 
@@ -47,13 +48,16 @@ transform = Transform3D(0.866025, 0, 0.5, 0.25, 0.866025, -0.433013, -0.433013, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67019, -2.24563, 1.00845)
 
 [node name="LogicProducer" parent="." instance=ExtResource("3_fyuas")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.90175, 1.75214, 0.0905054)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.85875, 0.319722, 0.0905054)
 
 [node name="NotGate" parent="." instance=ExtResource("4_ba2cd")]
 transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -1.37857, 1.72685, 0.299121)
 
 [node name="AndGate" parent="." instance=ExtResource("5_i5w66")]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -0.915503, 0.29338, 0.228893)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -0.373869, 0.579244, 0.228893)
+
+[node name="OrGate" parent="." instance=ExtResource("6_7odr7")]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -1.42011, -0.905057, 0.111286)
 
 [connection signal="pulsed" from="." to="LogicProducer" method="_on_pulsed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
