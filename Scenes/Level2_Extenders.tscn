@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://caf6jtk56sx4r" path="res://Assets/Audio/level 2 intro.mp3" id="4_75hmq"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="5_0lmyq"]
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="6_5ery8"]
-[ext_resource type="PackedScene" uid="uid://bx58x13donmkk" path="res://Scenes/Prefabs/Unlocker.tscn" id="7_eotw4"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Button.tscn" id="8_ht1y7"]
+[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="7_eotw4"]
+[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="8_ht1y7"]
 [ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="9_0lnol"]
 [ext_resource type="PackedScene" uid="uid://dl0u6ggfc6c8f" path="res://Assets/Meshes/Scatter/treePine-col.glb" id="11_r6mgp"]
 [ext_resource type="PackedScene" uid="uid://cgyarwnrv7tbr" path="res://Assets/Meshes/Scatter/flowers-col.glb" id="12_phxlh"]
@@ -26,7 +26,7 @@ sky = SubResource("Sky_cjrrd")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="DebugLevel3" type="Node3D"]
+[node name="DebugLevel4" type="Node3D"]
 script = ExtResource("1_7x0qu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -72,8 +72,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15.88
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -20.507, 1.54631, -2.51862)
 
 [node name="PulseCheckTimer" type="Timer" parent="."]
-
-[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]
 
 [node name="treePine-col" parent="." instance=ExtResource("11_r6mgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.466, 6.5, 5.34268)
@@ -185,3 +183,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.86364, 1.5, 10.5368)
 
 [node name="flowers-col6" parent="." instance=ExtResource("12_phxlh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91093, 1.5, 9.7272)
+
+[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]

@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://bp53xv2qa2xoq" path="res://Assets/Audio/level 3 intro.mp3" id="4_j6go7"]
 [ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="6_4msrn"]
 [ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="7_umph8"]
-[ext_resource type="PackedScene" uid="uid://bx58x13donmkk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_6wswy"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Button.tscn" id="9_v7t7b"]
+[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_6wswy"]
+[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="9_v7t7b"]
 [ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="10_0n3pv"]
 [ext_resource type="PackedScene" uid="uid://dl0u6ggfc6c8f" path="res://Assets/Meshes/Scatter/treePine-col.glb" id="11_rtcxw"]
 [ext_resource type="PackedScene" uid="uid://dtaxb8d2lnfav" path="res://Assets/Meshes/Scatter/treePineSmall-col.glb" id="12_q7p6g"]
@@ -74,8 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, -12.7317
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6.34535, 1.45049, -2.58629)
 
 [node name="PulseCheckTimer" type="Timer" parent="."]
-
-[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]
 
 [node name="treePine-col" parent="." instance=ExtResource("11_rtcxw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31447, 7.5, 7.14944)
@@ -202,3 +200,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2347, 7.5, 8.95552)
 
 [node name="stones-col" parent="." instance=ExtResource("14_w8lhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67687, 5.5, 18.6041)
+
+[connection signal="area_entered" from="LeDoor" to="." method="_on_le_door_area_entered"]

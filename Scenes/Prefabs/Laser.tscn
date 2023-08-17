@@ -27,3 +27,4 @@ mesh = SubResource("CylinderMesh_6qfmm")
 
 [node name="LaserStream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_hhf3s")
+volume_db = -20.0

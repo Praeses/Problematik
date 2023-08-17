@@ -9,7 +9,7 @@ const FALSE_EMISSION_COLOR := Color.DARK_RED
 @onready var node := $Node
 
 @onready var pulse_timer := $PulseTimer
-@export var pulse_timer_wait_time := 1.0
+@export var pulse_timer_wait_time := .3
 
 @onready var pulse_light := $OmniLight3D
 
