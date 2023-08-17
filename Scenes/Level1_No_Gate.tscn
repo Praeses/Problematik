@@ -72,9 +72,3 @@ one_shot = true
 
 [node name="LeDoor" parent="." instance=ExtResource("10_1j18m")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.01929, 1.48473, 19.5681)
-
-[connection signal="pulsed" from="." to="LogicProducer" method="_on_pulsed"]
-[connection signal="puzzle_solved" from="." to="LeDoor" method="_open"]
-[connection signal="pulsed" from="Unlocker" to="." method="_on_unlocker_pulsed"]
-[connection signal="clicked" from="Button" to="." method="_on_button_clicked"]
-[connection signal="timeout" from="PulseCheckTimer" to="." method="_on_pulse_check_timer_timeout"]

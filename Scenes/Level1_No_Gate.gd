@@ -11,10 +11,23 @@ signal pulsed(value: bool)
 signal puzzle_solved()
 
 @onready var pulse_timer := $PulseCheckTimer
+@onready var button := $Button
+@onready var unlocker := $Unlocker
+@onready var connector_handler := $ConnectorHandler
+@onready var logic_producer := $LogicProducer
+@onready var door := $LeDoor
+
+@export var pulse_timeout := 5
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	button.clicked.connect(_on_button_clicked)
+	pulse_timer.timeout.connect(_on_pulse_check_timer_timeout)
+	pulse_timer.wait_time = pulse_timeout
+	unlocker.pulsed.connect(_on_unlocker_pulsed)
+	pulsed.connect(logic_producer._on_pulsed)
+	puzzle_solved.connect(door._open)
 	pass # Replace with function body.
 
 
