@@ -79,6 +79,10 @@ func _input(event):
 				if not collider.is_in_group("Connector"):
 					gate_added.emit(point, normal, ANDER)
 				pass
+			elif tool_index == ORER:
+				if not collider.is_in_group("Connector"):
+					gate_added.emit(point, normal, ORER)
+				pass
 			print(ray_result)
 	elif Input.is_action_just_pressed("right_click") && !switching_tool:
 		var ray_result = tools[tool_index].fire_ray()
@@ -101,6 +105,9 @@ func _input(event):
 					gate_removed.emit(collider)
 			elif tool_index == ANDER:
 				if collider.is_in_group("Connector") && collider.owner.owner is AndGate:
+					gate_removed.emit(collider)
+			elif tool_index == ORER:
+				if collider.is_in_group("Connector") && collider.owner.owner is OrGate:
 					gate_removed.emit(collider)
 			pass
 

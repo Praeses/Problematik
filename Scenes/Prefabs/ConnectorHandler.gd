@@ -6,6 +6,7 @@ var lasers := []
 const extender_scene := preload("res://Scenes/Prefabs/Extender.tscn")
 const not_gate_scene := preload("res://Scenes/Prefabs/NotGate.tscn")
 const and_gate_scene := preload("res://Scenes/Prefabs/AndGate.tscn")
+const or_gate_scene := preload("res://Scenes/Prefabs/OrGate.tscn")
 const laser_scene := preload("res://Scenes/Prefabs/Laser.tscn")
 
 const EXTENDER := 1
@@ -54,8 +55,7 @@ func _get_gate_instance(type: int):
 	elif type == AND_GATE:
 		return and_gate_scene.instantiate()
 	elif type == OR_GATE:
-		# TODO: Add Or Gate
-		return extender_scene.instantiate()
+		return or_gate_scene.instantiate()
 	pass
 
 
