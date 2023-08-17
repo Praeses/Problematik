@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm4exkb0dslxk"]
+[gd_scene load_steps=9 format=3 uid="uid://bm4exkb0dslxk"]
 
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_08uio"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_otfkw"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
+[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
+[ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_2brkt"]
+[ext_resource type="AudioStream" uid="uid://b7jku4iydvab1" path="res://Assets/Audio/level 4 intro.mp3" id="5_iw43m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_flwny"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,3 +52,12 @@ distance = 5.0
 
 [node name="Player" parent="." instance=ExtResource("2_otfkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3919, 2.88884, 4.08383)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2brkt")
+volume_db = -10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iw43m")
+autoplay = true
