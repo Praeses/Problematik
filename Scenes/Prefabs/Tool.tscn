@@ -35,3 +35,4 @@ mesh = SubResource("CylinderMesh_t0b0f")
 
 [node name="PewStream" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_0apsh")
+volume_db = -22.0
