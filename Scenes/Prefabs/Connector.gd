@@ -13,6 +13,9 @@ const FALSE_EMISSION_COLOR := Color.DARK_RED
 
 @onready var pulse_light := $OmniLight3D
 
+@onready var true_stream_player := $Node/TrueStream
+@onready var false_stream_player := $Node/FalseStream
+
 var _current_value := false
 
 var lasers := []
@@ -59,12 +62,14 @@ func _on_pulsed(value: bool):
 		material.roughness = mesh_mat.roughness
 		material.metallic = mesh_mat.metallic
 		pulse_light.light_color = Color(TRUE_EMISSION_COLOR)
+		true_stream_player.play()
 	else:
 		material.emission = Color(FALSE_EMISSION_COLOR)
 		material.albedo_color = Color(FALSE_EMISSION_COLOR, 0.3)
 		material.roughness = mesh_mat.roughness
 		material.metallic = mesh_mat.metallic
 		pulse_light.light_color = Color(FALSE_EMISSION_COLOR)
+		false_stream_player.play()
 	
 	$Node.material_override = material
 	
