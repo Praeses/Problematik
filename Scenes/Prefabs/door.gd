@@ -10,6 +10,8 @@ extends Node3D
 @onready var collision2: CollisionShape3D = $Mesh2/doorOpen/doorOpen2/StaticBody3D/CollisionShape3D
 @onready var portal_collision := $Mesh2/Area3D/CollisionShape3D
 
+@onready var open_stream := $OpenStream
+
 @export var debug_key_enabled := false
 
 signal area_entered()
@@ -49,6 +51,8 @@ func _set_mesh(value: bool):
 	portal_collision.set_disabled(is_mesh1_active)
 
 func _open():
+	if !open_stream.playing:
+		open_stream.play()
 	_set_mesh(false)
 
 
