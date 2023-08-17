@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bny5yv23ul3s1"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/NotGate.gd" id="1_5vwjk"]
+[ext_resource type="PackedScene" uid="uid://dv35gqsuwuddc" path="res://Scenes/Prefabs/Connector.tscn" id="1_63p3t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ah4tn"]
+size = Vector3(0.5, 0.1, 1.5)
+
+[node name="NotGate" type="Node3D"]
+script = ExtResource("1_5vwjk")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ah4tn")
+
+[node name="InputConnector" parent="." instance=ExtResource("1_63p3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="OutputConnector" parent="." instance=ExtResource("1_63p3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0.0518002, 0)
+text = "<-In|out->
+Not Gate"
+
+[connection signal="pulsed" from="." to="OutputConnector" method="_on_pulsed"]
+[connection signal="pulsed" from="InputConnector" to="." method="_on_input_connector_pulsed"]
