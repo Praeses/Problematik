@@ -73,18 +73,18 @@ autoplay = true
 [node name="ConnectorHandler" parent="." instance=ExtResource("7_u7ep3")]
 
 [node name="Unlocker" parent="." instance=ExtResource("8_l6bqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6782, 1.45321, 0.60357)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -17.3731, 6.21459, 15.9588)
 
 [node name="Button" parent="." instance=ExtResource("9_wogex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0722, 1.9227, 2.89875)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -18.9219, 6.48959, 16.001)
 
 [node name="LeDoor" parent="." instance=ExtResource("10_d4k5t")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -15.84, 1.88621, -1.8215)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -13.3892, 4.79794, 17.4928)
 
 [node name="PulseCheckTimer" type="Timer" parent="."]
 
 [node name="LogicProducer1" parent="." instance=ExtResource("11_ie2ng")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0627, 1.70535, 0.0898771)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -21.0627, 2.92871, -3.00046)
 
 [node name="LogicProducer2" parent="." instance=ExtResource("11_ie2ng")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3355, 1.8435, 0.314806)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -19.3355, 3.78656, -3.01026)

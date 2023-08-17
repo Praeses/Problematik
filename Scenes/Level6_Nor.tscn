@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_adhjx"]
 [ext_resource type="Script" path="res://Scenes/Level6_Nor.gd" id="1_o5r28"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_apx25"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_si8hx"]
+[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_si8hx"]
 [ext_resource type="AudioStream" uid="uid://ci3gfs3ph1ujc" path="res://Assets/Audio/winter problem.mp3" id="4_ibtxd"]
 [ext_resource type="AudioStream" uid="uid://i7d5xen8bw5c" path="res://Assets/Audio/level 6 intro.mp3" id="5_0ytvj"]
 [ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="7_1iycc"]
@@ -68,19 +68,19 @@ stream = ExtResource("5_0ytvj")
 autoplay = true
 
 [node name="Button" parent="." instance=ExtResource("7_1iycc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59466, 1.48204, 2.68478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6067, 1.48204, -15.9301)
 
 [node name="Unlocker" parent="." instance=ExtResource("8_ej0sm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27376, 1.46243, 2.63344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93314, 1.46243, -15.9814)
 
 [node name="LogicProducer1" parent="." instance=ExtResource("9_5h5i4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28144, 1.45489, 5.56628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5125, 3.48065, 15.5385)
 
 [node name="LogicProducer2" parent="." instance=ExtResource("9_5h5i4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25301, 1.47934, 4.44659)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.506, 3.48451, -17.5258)
 
 [node name="LeDoor" parent="." instance=ExtResource("10_u2r57")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.0882795, 1.45564, 0)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 8.55433, 1.45564, -18.8048)
 
 [node name="PulseCheckTimer" type="Timer" parent="."]
 

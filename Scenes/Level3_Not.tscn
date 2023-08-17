@@ -60,12 +60,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.3635
 [node name="ConnectorHandler" parent="." instance=ExtResource("7_umph8")]
 
 [node name="Unlocker" parent="." instance=ExtResource("8_6wswy")]
-transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 3.50115, 3.0565, -3.0631)
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, -10.3064, 3.0565, -3.0631)
 
 [node name="Button" parent="." instance=ExtResource("9_v7t7b")]
-transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 2.10737, 2.8827, -3.05475)
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, -12.7317, 2.8827, -3.05475)
 
 [node name="LeDoor" parent="." instance=ExtResource("10_0n3pv")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.914511, 1.45049, -2.58629)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6.34535, 1.45049, -2.58629)
 
 [node name="PulseCheckTimer" type="Timer" parent="."]
