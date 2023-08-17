@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci3gfs3ph1ujc"
+path="res://.godot/imported/winter problem.mp3-efdadce96e8d582265f721d66736fa13.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/winter problem.mp3"
+dest_files=["res://.godot/imported/winter problem.mp3-efdadce96e8d582265f721d66736fa13.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8krtld76ajxh"
+path="res://.godot/imported/level transition.mp3-d3556440a89d2f2b627c09d860a04d62.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/level transition.mp3"
+dest_files=["res://.godot/imported/level transition.mp3-d3556440a89d2f2b627c09d860a04d62.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

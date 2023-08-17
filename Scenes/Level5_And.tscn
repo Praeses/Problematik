@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_ss7nm"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_loyv0"]
 [ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_nsfci"]
-[ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_lpmtu"]
+[ext_resource type="AudioStream" uid="uid://ci3gfs3ph1ujc" path="res://Assets/Audio/winter problem.mp3" id="4_op0vf"]
 [ext_resource type="AudioStream" uid="uid://cn8ue7j7na7v" path="res://Assets/Audio/level 5 intro.mp3" id="5_lpaek"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vo16c"]
@@ -53,8 +53,8 @@ distance = 8.0
 direction = Vector3(1, 0, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_lpmtu")
-volume_db = -10.0
+stream = ExtResource("4_op0vf")
+volume_db = -20.0
 autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
