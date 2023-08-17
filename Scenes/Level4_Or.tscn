@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm4exkb0dslxk"]
+[gd_scene load_steps=15 format=3 uid="uid://bm4exkb0dslxk"]
 
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_08uio"]
+[ext_resource type="Script" path="res://Scenes/Level4_Or.gd" id="1_60n5r"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_otfkw"]
-[ext_resource type="PackedScene" uid="uid://bidc6nmcqod4b" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/platform.tscn" id="3_eqxpx"]
 [ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="4_2brkt"]
 [ext_resource type="AudioStream" uid="uid://b7jku4iydvab1" path="res://Assets/Audio/level 4 intro.mp3" id="5_iw43m"]
+[ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="7_u7ep3"]
+[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_l6bqt"]
+[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="9_wogex"]
+[ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="10_d4k5t"]
+[ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="11_ie2ng"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_flwny"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +26,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="DebugLevel" type="Node3D"]
+script = ExtResource("1_60n5r")
+pulse_timeout = 30
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vkxtk")
@@ -61,3 +69,22 @@ autoplay = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_iw43m")
 autoplay = true
+
+[node name="ConnectorHandler" parent="." instance=ExtResource("7_u7ep3")]
+
+[node name="Unlocker" parent="." instance=ExtResource("8_l6bqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6782, 1.45321, 0.60357)
+
+[node name="Button" parent="." instance=ExtResource("9_wogex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0722, 1.9227, 2.89875)
+
+[node name="LeDoor" parent="." instance=ExtResource("10_d4k5t")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -15.84, 1.88621, -1.8215)
+
+[node name="PulseCheckTimer" type="Timer" parent="."]
+
+[node name="LogicProducer1" parent="." instance=ExtResource("11_ie2ng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0627, 1.70535, 0.0898771)
+
+[node name="LogicProducer2" parent="." instance=ExtResource("11_ie2ng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3355, 1.8435, 0.314806)
