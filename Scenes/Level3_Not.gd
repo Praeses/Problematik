@@ -2,7 +2,7 @@ extends Node3D
 
 var pulse_idx := 0
 var pulses := [true, false]
-var expected_results := [true, false]
+var expected_results := [false, true]
 
 var results := []
 var checking := false
@@ -17,7 +17,7 @@ signal puzzle_solved()
 @onready var logic_producer := $LogicProducer
 @onready var door := $LeDoor
 
-@export var pulse_timeout := 5
+@export var pulse_timeout := 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -55,6 +55,7 @@ func _on_pulse_check_timer_timeout():
 
 func _on_unlocker_pulsed(value):
 	results.append(value)
+	print("Number of results: " + str(results.size()))
 	if results.size() >= pulses.size() or pulse_idx >= pulses.size():
 		var success = true
 		for i in range(0, results.size()):

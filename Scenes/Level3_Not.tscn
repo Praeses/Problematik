@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://crw8ssfry43we"]
+[gd_scene load_steps=14 format=3 uid="uid://crw8ssfry43we"]
 
 [ext_resource type="MeshLibrary" uid="uid://ci4a7nf6oifoy" path="res://Library/BlockLib.tres" id="1_f7cbh"]
+[ext_resource type="Script" path="res://Scenes/Level3_Not.gd" id="1_knvl3"]
 [ext_resource type="PackedScene" uid="uid://dmm6vfpbo1n6f" path="res://Scenes/Prefabs/Player.tscn" id="2_x7c6o"]
 [ext_resource type="AudioStream" uid="uid://dkkem2kw7bxtl" path="res://Assets/Audio/Problematik.mp3" id="3_kwpxg"]
 [ext_resource type="AudioStream" uid="uid://bp53xv2qa2xoq" path="res://Assets/Audio/level 3 intro.mp3" id="4_j6go7"]
+[ext_resource type="PackedScene" uid="uid://ckb45fwtbyh66" path="res://Scenes/Prefabs/LogicProducer.tscn" id="6_4msrn"]
+[ext_resource type="PackedScene" uid="uid://dctwpsouiufhv" path="res://Scenes/Prefabs/ConnectorHandler.tscn" id="7_umph8"]
+[ext_resource type="PackedScene" uid="uid://dd6xduo56wcvk" path="res://Scenes/Prefabs/Unlocker.tscn" id="8_6wswy"]
+[ext_resource type="PackedScene" uid="uid://dmvhvtblhm7ce" path="res://Scenes/Prefabs/Button.tscn" id="9_v7t7b"]
+[ext_resource type="PackedScene" uid="uid://da7abfqdrue5x" path="res://Scenes/Prefabs/Door.tscn" id="10_0n3pv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_flwny"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,6 +25,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="DebugLevel" type="Node3D"]
+script = ExtResource("1_knvl3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vkxtk")
@@ -46,3 +53,19 @@ autoplay = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_j6go7")
 autoplay = true
+
+[node name="LogicProducer" parent="." instance=ExtResource("6_4msrn")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.36354, 2.98367, -3.07676)
+
+[node name="ConnectorHandler" parent="." instance=ExtResource("7_umph8")]
+
+[node name="Unlocker" parent="." instance=ExtResource("8_6wswy")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 3.50115, 3.0565, -3.0631)
+
+[node name="Button" parent="." instance=ExtResource("9_v7t7b")]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 2.10737, 2.8827, -3.05475)
+
+[node name="LeDoor" parent="." instance=ExtResource("10_0n3pv")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.914511, 1.45049, -2.58629)
+
+[node name="PulseCheckTimer" type="Timer" parent="."]
