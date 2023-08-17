@@ -39,6 +39,12 @@ func align_up(node_basis, normal):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var player = owner.find_child("Player") as Player
+	if player:
+		player.gate_added.connect(_on_player_gate_added)
+		player.gate_removed.connect(_on_player_gate_removed)
+		player.laser_connected.connect(_on_player_laser_connected)
+		player.laser_disconnected.connect(_on_player_laser_disconnected)
 	pass # Replace with function body.
 
 

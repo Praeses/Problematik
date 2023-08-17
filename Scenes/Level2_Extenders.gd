@@ -17,7 +17,7 @@ signal puzzle_solved()
 @onready var logic_producer := $LogicProducer
 @onready var door := $LeDoor
 
-@export var pulse_timeout := 5
+@export var pulse_timeout := 10
 
 
 # Called when the node enters the scene tree for the first time.
