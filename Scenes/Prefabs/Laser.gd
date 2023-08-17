@@ -1,4 +1,40 @@
 extends Node3D
+class_name Laser
+
+@onready var _mesh := $MeshInstance3D
+
+var source: Node3D
+var destination: Node3D
+
+signal pulsed(value: bool)
+
+
+func set_source(source: Node3D):
+	if source.owner is Connector:
+		self.source = source
+		source.owner.pulsed.connect(_on_pulsed)
+		print("[Laser] - Source pulsed signal connected to Laser")
+	else:
+		print("[Laser] - Source not a Connector, skipping")
+
+
+func remove_source():
+	source.owner.pulsed.disconnect(_on_pulsed)
+	source = null
+
+
+func set_destination(destination: Node3D):
+	if destination.owner is Connector:
+		self.destination = destination
+		pulsed.connect(self.destination.owner._on_pulsed)
+		print("[Laser] - Laser pulsed signal connected to Destination")
+	else:
+		print("[Laser] - Destination not a Connector, skipping")
+
+
+func remove_destination():
+	destination = null
+	pulsed.disconnect(destination.owner._on_pulsed)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,4 +44,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if source:
+		global_position = source.global_position
+		print("Laser Source: " + str(position))
+	
+	if destination:
+		print("Laser Destination: " + str(destination.global_position))
+		look_at(destination.global_position)
+		var distance = source.global_position.distance_to(destination.global_position)
+		_mesh.mesh.height = distance
+		var direction = source.global_position.direction_to(destination.global_position)
+		
+		_mesh.position.z = -distance/2
 	pass
+
+
+func _on_pulsed(value: bool):
+	pulsed.emit(value)

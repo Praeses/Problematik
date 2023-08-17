@@ -10,17 +10,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_lsawl"]
 size = Vector3(0.2, 0.2, 1)
 
-[sub_resource type="Animation" id="Animation_pc1rg"]
-resource_name = "Holster"
-length = 0.5
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, -0.707107, 0, 0, 0.707107)
-
 [sub_resource type="Animation" id="Animation_exd47"]
 resource_name = "Draw"
 length = 0.5
@@ -31,6 +20,17 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107, 0.5, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_pc1rg"]
+resource_name = "Holster"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, -0.707107, 0, 0, 0.707107)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g4hqk"]
 _data = {
