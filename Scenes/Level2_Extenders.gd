@@ -39,6 +39,7 @@ func _process(delta):
 func _on_button_clicked():
 	if not checking:
 		checking = true
+		pulse_idx = 0
 		pulsed.emit(pulses[pulse_idx])
 		pulse_idx += 1
 		pulse_timer.start()
