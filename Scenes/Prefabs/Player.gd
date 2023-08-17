@@ -56,7 +56,9 @@ func _input(event):
 			var normal = ray_result["normal"]
 			var point = ray_result["point"]
 			
-			if tool_index == LASER:
+			if collider.is_in_group("Button"):
+				collider.owner.click()
+			elif tool_index == LASER:
 				if collider.is_in_group("Connector"):
 					if _source == null:
 						_source = collider

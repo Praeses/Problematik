@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmvhvtblhm7ce"]
+
+[ext_resource type="Script" path="res://Scenes/Prefabs/Button.gd" id="1_a1ixv"]
+[ext_resource type="PackedScene" uid="uid://k03otktv3rgc" path="res://Assets/Meshes/Scatter/buttonSquare-col.glb" id="1_eunt1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb2gn"]
+albedo_color = Color(1, 0.188235, 0.192157, 1)
+roughness = 0.26
+emission_enabled = true
+emission = Color(0.552941, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hqrvt"]
+material = SubResource("StandardMaterial3D_rb2gn")
+size = Vector3(0.39, 0.1, 0.39)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dwtjc"]
+data = PackedVector3Array(-0.195, 0.05, 0.195, 0.195, 0.05, 0.195, -0.195, -0.05, 0.195, 0.195, 0.05, 0.195, 0.195, -0.05, 0.195, -0.195, -0.05, 0.195, 0.195, 0.05, -0.195, -0.195, 0.05, -0.195, 0.195, -0.05, -0.195, -0.195, 0.05, -0.195, -0.195, -0.05, -0.195, 0.195, -0.05, -0.195, 0.195, 0.05, 0.195, 0.195, 0.05, -0.195, 0.195, -0.05, 0.195, 0.195, 0.05, -0.195, 0.195, -0.05, -0.195, 0.195, -0.05, 0.195, -0.195, 0.05, -0.195, -0.195, 0.05, 0.195, -0.195, -0.05, -0.195, -0.195, 0.05, 0.195, -0.195, -0.05, 0.195, -0.195, -0.05, -0.195, 0.195, 0.05, 0.195, -0.195, 0.05, 0.195, 0.195, 0.05, -0.195, -0.195, 0.05, 0.195, -0.195, 0.05, -0.195, 0.195, 0.05, -0.195, -0.195, -0.05, 0.195, 0.195, -0.05, 0.195, -0.195, -0.05, -0.195, 0.195, -0.05, 0.195, 0.195, -0.05, -0.195, -0.195, -0.05, -0.195)
+
+[node name="Button" type="Node3D"]
+script = ExtResource("1_a1ixv")
+
+[node name="buttonSquare-col" parent="." instance=ExtResource("1_eunt1")]
+
+[node name="ButtonClicker" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108727, 0)
+mesh = SubResource("BoxMesh_hqrvt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ButtonClicker" groups=["Button"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonClicker/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dwtjc")
