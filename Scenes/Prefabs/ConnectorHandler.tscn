@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dctwpsouiufhv"]
+[gd_scene load_steps=3 format=3 uid="uid://dctwpsouiufhv"]
 
 [ext_resource type="Script" path="res://Scenes/Prefabs/ConnectorHandler.gd" id="1_p41uy"]
+[ext_resource type="AudioStream" uid="uid://c3odks3i1423t" path="res://Assets/Audio/Kenny/impactMetal_002.ogg" id="2_gtgrs"]
 
 [node name="ConnectorHandler" type="Node3D"]
 script = ExtResource("1_p41uy")
+
+[node name="PlacerStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gtgrs")
